@@ -1,0 +1,69 @@
+.itembox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid #3c3c3c;
+  border-radius: 5px;
+}
+.itembox:hover {
+  cursor: pointer;
+}
+.itembox .item-img {
+  width: 100%;
+  height: 77.78%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.itembox .item-img-banner {
+  width: 80%;
+  overflow: auto;
+}
+.itembox .item-text {
+  width: 100%;
+  height: 22.22%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.itembox .item-text-divider {
+  width: 100%;
+  height: 1px;
+  background-color: #a0a0a0;
+}
+.itembox .item-text-name, .itembox .item-text-price {
+  color: #000;
+  margin-top: 24px;
+  margin-left: 16px;
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.itembox .item-text-price {
+  margin-top: 10px;
+  font-size: 15px;
+}
+.itembox.big {
+  width: 350px;
+  height: 450px;
+}
+.itembox.small {
+  width: 250px;
+  height: 315px;
+}
+.itembox.small .item-text-name, .itembox.small .item-text-price {
+  font-size: 16px;
+  margin-top: 13px;
+}
+.itembox.small .item-text-price {
+  font-size: 13px;
+  margin-top: 8px;
+}
+.itembox.small .item-text-divider {
+  width: 100%;
+  height: 1px;
+  background-color: #a0a0a0;
+}/*# sourceMappingURL=itembox.styles.css.map */

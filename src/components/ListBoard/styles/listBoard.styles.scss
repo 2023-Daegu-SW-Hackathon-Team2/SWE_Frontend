@@ -1,0 +1,94 @@
+.list-board {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  //margin-top:17vh;
+  padding-top:180px;
+  position: relative;
+  align-items: center;
+  
+  .list-title {
+    width: 1300px;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: left;
+    margin-top: 50px;
+  }
+  .list-container{
+    width: 1300px;
+    height: 70%;
+    margin-top: 50px;
+    //overflow-y: scroll;
+  }
+  .list-head{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    background-color: black;
+    padding-right: 20px;
+    color: white;
+    height: 40px;
+    align-items: center;
+    &-num{
+      flex: 1;
+    }
+    &-type{
+      flex: 1;
+    }
+    &-title{
+      flex: 3;
+    }
+    &-writer{
+      flex: 1;
+    }
+    &-time{
+      flex: 1;
+    }
+  }
+
+  .list-item{
+    display: flex;
+    flex-direction: column;
+    height: 85%;
+    overflow-y: scroll;
+  }
+  .list-row{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    height: 60px;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
+    flex-shrink: 0;
+    &-num{
+      flex: 1;
+    }
+    &-type{
+      flex: 1;
+    }
+    &-title{
+      flex: 3;
+    }
+    &-writer{
+      flex: 1;
+    }
+    &-time{
+      flex: 1;
+    }
+  }
+  .write{
+    position: relative;
+    width: 1300px;
+    text-align: right;
+    &-button{
+      height: 50px;
+      width: 150px;
+      border-radius: 5px;
+      border: 0px;
+      background-color: black;
+      color:white;
+      float: right;
+    }
+  }
+}

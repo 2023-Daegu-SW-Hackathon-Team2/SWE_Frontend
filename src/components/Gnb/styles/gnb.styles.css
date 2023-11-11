@@ -1,0 +1,109 @@
+.gnb {
+  position: fixed;
+  width: 100vw;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  z-index: 30;
+}
+.gnb* {
+  font-family: Pretendard;
+}
+.gnb-logo {
+  width: 100%;
+  height: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.9);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
+.gnb-logo:hover {
+  cursor: pointer;
+}
+.gnb-nav {
+  position: relative;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #3c3c3c;
+  background: rgba(60, 60, 60, 0.9);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
+.gnb-nav-s1, .gnb-nav-s2 {
+  position: absolute;
+  left: 40px;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 100px;
+}
+.gnb-nav-s1 .tab, .gnb-nav-s2 .tab {
+  position: relative;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-family: Pretendard;
+  color: #fff;
+  text-align: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.gnb-nav-s1 .tab img, .gnb-nav-s2 .tab img {
+  width: 16px;
+}
+.gnb-nav-s1 .tab-dropbox, .gnb-nav-s2 .tab-dropbox, .gnb-nav-s1 .tab-dropbox-active, .gnb-nav-s2 .tab-dropbox-active {
+  position: absolute;
+  top: 55px;
+  width: 200%;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #3c3c3c;
+  border-left: 1px solid #3c3c3c;
+  border-right: 1px solid #3c3c3c;
+  background: white;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+.gnb-nav-s1 .tab-dropbox .droptab, .gnb-nav-s2 .tab-dropbox .droptab, .gnb-nav-s1 .tab-dropbox-active .droptab, .gnb-nav-s2 .tab-dropbox-active .droptab {
+  width: 100%;
+  height: 50px;
+  color: #9e9e9e;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 1px solid #3c3c3c;
+}
+.gnb-nav-s1 .tab-dropbox .droptab:hover, .gnb-nav-s2 .tab-dropbox .droptab:hover, .gnb-nav-s1 .tab-dropbox-active .droptab:hover, .gnb-nav-s2 .tab-dropbox-active .droptab:hover {
+  background-color: #dedede;
+  color: black;
+}
+.gnb-nav-s1 .tab-dropbox-active, .gnb-nav-s2 .tab-dropbox-active {
+  opacity: 1;
+  visibility: visible;
+}
+.gnb-nav-s1 .tab img, .gnb-nav-s2 .tab img {
+  margin-left: 8px;
+}
+.gnb-nav-s1 .tab:hover, .gnb-nav-s2 .tab:hover {
+  cursor: pointer;
+}
+.gnb-nav-s2 {
+  left: auto;
+  right: 40px;
+}/*# sourceMappingURL=gnb.styles.css.map */

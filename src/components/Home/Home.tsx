@@ -1,9 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Carousel from './components/BannerCarousel';
+import './styles/home.styles.css';
+import { HomeItem } from '@typedef/types';
+import HomeItemsContainer from './containers/HomeItemsContainer';
+import { getBannerImg } from 'src/api/HomeAPI';
 
-type Props = {};
+type Props = {
+  itemList1: HomeItem[];
+  itemList2: HomeItem[];
+  title1: string;
+  title2: string;
+  images: string[];
+};
 
-const Home = (props: Props) => {
-	return <div className='home'></div>;
+const Home = ({ itemList1, itemList2, title1, title2, images }: Props) => {
+
+  return (
+    <div className='home'>
+      <Carousel images={images} />
+      {itemList1.length !== 0 ? <HomeItemsContainer itemList={itemList1} title={title1} /> : <div></div>}
+      {itemList2.length !== 0 ? <HomeItemsContainer itemList={itemList2} title={title2} /> : <div></div>}
+    </div>
+  );
 };
 
 export default Home;
