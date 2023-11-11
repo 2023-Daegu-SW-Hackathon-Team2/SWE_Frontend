@@ -1,6 +1,7 @@
 import HomeContainer from '@components/Home/containers/HomeContainer';
 import GnbContainer from '@components/Gnb/containers/GnbContainer';
 import ListBoardContainer from '@components/ListBoard/containers/ListBoardContainer';
+import ProductContainer from '@components/Product/containers/ProductContainer';
 import React, { useEffect, useState } from 'react';
 import {
   BrowserRouter as Router,
@@ -17,7 +18,8 @@ const RootNavigation = () => {
       <GnbContainer />
       <Routes location={location}>
         <Route path='/' element={<HomeContainer />} />
-        <Route path='/listBoard' element={<ListBoardContainer />} />
+        <Route path='/community' element={<ListBoardContainer />} />
+        <Route path='/product/:id' element={<ProductContainer />} />
       </Routes>
     </>
   );
