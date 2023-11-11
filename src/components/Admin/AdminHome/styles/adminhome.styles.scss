@@ -1,0 +1,11 @@
+.adhome {
+  width: 100%;
+  padding-left: 120px;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  &-preview {
+    width: 700px;
+  }
+}

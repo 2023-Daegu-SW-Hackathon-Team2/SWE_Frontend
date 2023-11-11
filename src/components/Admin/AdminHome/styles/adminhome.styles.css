@@ -1,0 +1,12 @@
+.adhome {
+  width: 100%;
+  padding-left: 120px;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.adhome-preview {
+  width: 700px;
+}/*# sourceMappingURL=adminhome.styles.css.map */

@@ -23,7 +23,7 @@ const RootNavigation = () => {
       <GnbContainer location={location.pathname} />
       <AdminGnbContainer location={location.pathname} />
       <Routes location={location}>
-        <Route path='/' element={<HomeContainer />} />
+        <Route path='/' element={<HomeContainer view={''} />} />
         <Route path='/community' element={<ListBoardContainer />} />
         <Route path='/product/:id' element={<ProductContainer />} />
         <Route path='/listBoard' element={<ListBoardContainer />} />
