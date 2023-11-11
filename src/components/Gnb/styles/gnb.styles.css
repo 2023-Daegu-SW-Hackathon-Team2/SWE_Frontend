@@ -1,0 +1,61 @@
+.gnb {
+  position: fixed;
+  width: 100vw;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+}
+.gnb* {
+  font-family: Pretendard;
+}
+.gnb-logo {
+  width: 100%;
+  height: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.gnb-nav {
+  position: relative;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #3c3c3c;
+  background: rgba(60, 60, 60, 0.9);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
+.gnb-nav-s1, .gnb-nav-s2 {
+  position: absolute;
+  left: 40px;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 60px;
+}
+.gnb-nav-s1 .tab, .gnb-nav-s2 .tab {
+  width: -moz-fit-content;
+  width: fit-content;
+  font-family: Pretendard;
+  color: #fff;
+  text-align: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.gnb-nav-s1 .tab:hover, .gnb-nav-s2 .tab:hover {
+  cursor: pointer;
+}
+.gnb-nav-s2 {
+  left: auto;
+  right: 40px;
+}/*# sourceMappingURL=gnb.styles.css.map */
