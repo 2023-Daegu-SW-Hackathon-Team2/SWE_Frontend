@@ -1,0 +1,88 @@
+.list-board {
+  display: flex;
+  width: 100vw;
+  height: 83vh;
+  flex-direction: column;
+  margin-top: 17vh;
+  position: fixed;
+}
+.list-board .list-title {
+  font-size: 36px;
+  font-weight: bold;
+  margin-left: 10vw;
+  margin-top: 5vh;
+}
+.list-board .list-container {
+  width: 80%;
+  height: 70%;
+  margin-top: 3vh;
+  margin-left: 10vw;
+}
+.list-board .list-head {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  background-color: black;
+  color: white;
+  height: 40px;
+  align-items: center;
+}
+.list-board .list-head-num {
+  flex: 1;
+}
+.list-board .list-head-type {
+  flex: 1;
+}
+.list-board .list-head-title {
+  flex: 3;
+}
+.list-board .list-head-writer {
+  flex: 1;
+}
+.list-board .list-head-time {
+  flex: 1;
+}
+.list-board .list-item {
+  display: flex;
+  flex-direction: column;
+  height: 85%;
+  overflow-y: scroll;
+}
+.list-board .list-row {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  height: 40px;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
+  flex-shrink: 0;
+}
+.list-board .list-row-num {
+  flex: 1;
+}
+.list-board .list-row-type {
+  flex: 1;
+}
+.list-board .list-row-title {
+  flex: 3;
+}
+.list-board .list-row-writer {
+  flex: 1;
+}
+.list-board .list-row-time {
+  flex: 1;
+}
+.list-board .write {
+  position: relative;
+}
+.list-board .write-button {
+  height: 50px;
+  width: 150px;
+  border-radius: 5px;
+  border: 0px;
+  background-color: black;
+  color: white;
+  float: right;
+  margin-right: 12vh;
+  margin-top: 1vh;
+}/*# sourceMappingURL=ListBoard.styles.css.map */
