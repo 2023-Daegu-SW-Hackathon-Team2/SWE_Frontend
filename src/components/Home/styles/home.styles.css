@@ -1,0 +1,9 @@
+.home {
+  width: 100%;
+  padding-top: 180px;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}/*# sourceMappingURL=home.styles.css.map */
