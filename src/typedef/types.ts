@@ -28,4 +28,17 @@ export type CompanyData = {
   protectName: string;
 };
 
-export type ItemInfo = {};
+export type ItemInfo = {
+  category: number;
+  choose: string[];
+  description: string;
+  id: number;
+  price: number;
+  title: string;
+  user_id: string;
+};
+
+export type SelectedItem = {
+  label: string;
+  quantity: number;
+};
