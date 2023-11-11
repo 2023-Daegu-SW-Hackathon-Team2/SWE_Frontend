@@ -38,6 +38,7 @@
 
       .frame{
         width: 1300px;
+        height: 550px;
         overflow: hidden;
       }
 
@@ -48,6 +49,7 @@
         height: 100%;
 
         .img-box{
+          display: flex;
           width: 1300px;
 
           .image{
@@ -85,7 +87,8 @@
       height: 450px;
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
+      gap: 33px;
+      // justify-content: space-between;
       align-items: center;
     }
   }

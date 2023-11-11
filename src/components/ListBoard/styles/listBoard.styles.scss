@@ -1,10 +1,11 @@
 .list-board {
   display: flex;
   width: 100vw;
-  height: 83vh;
+  height: 100vh;
   flex-direction: column;
-  margin-top:17vh;
-  position: fixed;
+  //margin-top:17vh;
+  padding-top:180px;
+  position: relative;
   
   .list-title {
     font-size: 36px;

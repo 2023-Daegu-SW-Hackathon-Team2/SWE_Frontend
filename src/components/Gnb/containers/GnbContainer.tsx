@@ -25,8 +25,8 @@ const GnbContainer = (props: Props) => {
       path: '/login',
     },
     {
-      label: 'Join',
-      path: '/join',
+      label: 'Cart',
+      path: '/cart',
     },
     {
       label: 'My page',
