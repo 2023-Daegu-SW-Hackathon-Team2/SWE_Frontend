@@ -75,10 +75,7 @@ const ProductInfoContainer = (props: Props) => {
   useEffect(() => {
     const fetchData = async () => {
       const data = await getProductInfo(parseInt(params));
-      console.log(data[0]);
       setProductInfo(data[0]);
-      console.log(data);
-      console.log(data[0].choose);
       const updatedList = [];
       for (let i = 0; i < data[0].choose.length; i++) {
         const tempItem = {
@@ -95,7 +92,6 @@ const ProductInfoContainer = (props: Props) => {
 
     return () => {};
   }, [params]);
-  console.log(selectedItem);
   // useEffect(() => {
   //   setAfterGet();
 
@@ -131,7 +127,6 @@ const ProductInfoContainer = (props: Props) => {
     return () => {};
   }, [selectedItem]);
 
-  console.log(selectedItem);
   return (
     <ProductInfo
       productInfo={productInfo}

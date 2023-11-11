@@ -19,7 +19,6 @@ const CartContainer = () => {
             quantity: data[index].quantity,
             choose: data[index].choose
           }));
-          console.log(newItems);
           setItemList(newItems);
         });
     });
