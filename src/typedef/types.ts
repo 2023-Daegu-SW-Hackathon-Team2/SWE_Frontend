@@ -27,6 +27,14 @@ export type ItemList = {
   price:number;
 }
 
+export type List = {
+  board_id:number;
+  title:string;
+  content:string;
+  created_time:string;
+  created_user_id:string;
+}
+
 export type CompanyData = {
   companyName: string;
   address: string;

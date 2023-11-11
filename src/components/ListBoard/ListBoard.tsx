@@ -1,34 +1,42 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './styles/listBoard.styles.css';
 import images from 'src/assets/images';
+import { List } from '@typedef/types';
+
+type Props = {
+  list: List[];
+};
 
 
-const ListBoard = () => {
-  const exampleData = [
-    { id: 1, type: '분류1', title: '제목1', writer: '작성자1', date: '2022-01-01' },
-    { id: 2, type: '분류2', title: '제목2', writer: '작성자2', date: '2022-01-02' },
-    { id: 2, type: '분류2', title: '제목2', writer: '작성자2', date: '2022-01-02' },
-    { id: 2, type: '분류2', title: '제목2', writer: '작성자2', date: '2022-01-02' },
-    { id: 2, type: '분류2', title: '제목2', writer: '작성자2', date: '2022-01-02' },
-    { id: 2, type: '분류2', title: '제목2', writer: '작성자2', date: '2022-01-02' },
-    { id: 2, type: '분류2', title: '제목2', writer: '작성자2', date: '2022-01-02' },
-    { id: 2, type: '분류2', title: '제목2', writer: '작성자2', date: '2022-01-02' },
-    { id: 2, type: '분류2', title: '제목2', writer: '작성자2', date: '2022-01-02' },
-    { id: 2, type: '분류2', title: '제목2', writer: '작성자2', date: '2022-01-02' },
-    { id: 2, type: '분류2', title: '제목2', writer: '작성자2', date: '2022-01-02' },
-    { id: 2, type: '분류2', title: '제목2', writer: '작성자2', date: '2022-01-02' },
-    { id: 2, type: '분류2', title: '제목2', writer: '작성자2', date: '2022-01-02' },
-    { id: 2, type: '분류2', title: '제목2', writer: '작성자2', date: '2022-01-02' },
-    { id: 2, type: '분류2', title: '제목2', writer: '작성자2', date: '2022-01-02' },
+const ListBoard = ({list}:Props) => {
+  // const exampleData = [
+  //   { id: 1, type: '분류1', title: '제목1', writer: '작성자1', date: '2022-01-01' },
+  //   { id: 2, type: '분류2', title: '제목2', writer: '작성자2', date: '2022-01-02' },
+  //   { id: 2, type: '분류2', title: '제목2', writer: '작성자2', date: '2022-01-02' },
+  //   { id: 2, type: '분류2', title: '제목2', writer: '작성자2', date: '2022-01-02' },
+  //   { id: 2, type: '분류2', title: '제목2', writer: '작성자2', date: '2022-01-02' },
+  //   { id: 2, type: '분류2', title: '제목2', writer: '작성자2', date: '2022-01-02' },
+  //   { id: 2, type: '분류2', title: '제목2', writer: '작성자2', date: '2022-01-02' },
+  //   { id: 2, type: '분류2', title: '제목2', writer: '작성자2', date: '2022-01-02' },
+  //   { id: 2, type: '분류2', title: '제목2', writer: '작성자2', date: '2022-01-02' },
+  //   { id: 2, type: '분류2', title: '제목2', writer: '작성자2', date: '2022-01-02' },
+  //   { id: 2, type: '분류2', title: '제목2', writer: '작성자2', date: '2022-01-02' },
+  //   { id: 2, type: '분류2', title: '제목2', writer: '작성자2', date: '2022-01-02' },
+  //   { id: 2, type: '분류2', title: '제목2', writer: '작성자2', date: '2022-01-02' },
+  //   { id: 2, type: '분류2', title: '제목2', writer: '작성자2', date: '2022-01-02' },
+  //   { id: 2, type: '분류2', title: '제목2', writer: '작성자2', date: '2022-01-02' },
 
-    // 여기에 추가 데이터...
-  ];
+  //   // 여기에 추가 데이터...
+  // ];
 
-  const [data, setData] = useState(exampleData); 
+  const [data, setData] = useState<List[]>([]); 
+  useEffect(() => {
+    setData(list);
+  }, [list]); // list가 변경될 때마다 useEffect 실행
 
   return (
-    <div className={`list-board `}>
-      <div className='list-title'>사용자 설정 제목</div>
+    <div className='list-board'>
+      <div className='list-title'>질문게시판</div>
       <div className='list-container'>
         <div className= 'list-head'>
           <div className='list-head-num'>번호</div>
@@ -39,12 +47,12 @@ const ListBoard = () => {
         </div>
         <div className='list-item'>
           {data.map((item, index) => (
-            <div key={item.id} className='list-row'>
+            <div key={item.board_id} className='list-row'>
               <div className='list-row-num'>{index + 1}</div>
-              <div className='list-row-type'>{item.type}</div>
+              <div className='list-row-type'>질문</div>
               <div className='list-row-title'>{item.title}</div>
-              <div className='list-row-writer'>{item.writer}</div>
-              <div className='list-row-time'>{item.date}</div>
+              <div className='list-row-writer'>{item.created_user_id}</div>
+              <div className='list-row-time'>{item.created_time.slice(0,10)}</div>
             </div>
           ))}
         </div>

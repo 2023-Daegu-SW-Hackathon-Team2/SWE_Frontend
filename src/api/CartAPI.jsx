@@ -12,7 +12,6 @@ export async function getCartInfo(cart_id) {
 export async function postBagList(bag) {
   const baseUrl = 'http://localhost:8000';
   let data = new FormData();
-  console.log(bag);
   const jsonData = JSON.stringify(bag);
   //data.append('bag', bag);
   //   data.append('product_id', bag.product_id);
@@ -21,7 +20,6 @@ export async function postBagList(bag) {
   //   data.append('choose', bag.choose);
   //data.append('mainBanner', mainBanner);
 
-  console.log(data);
   return fetch(`${baseUrl}/cart-items/`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

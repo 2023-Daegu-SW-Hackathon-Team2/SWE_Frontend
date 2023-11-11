@@ -6,19 +6,19 @@
   //margin-top:17vh;
   padding-top:180px;
   position: relative;
+  align-items: center;
   
   .list-title {
+    width: 1300px;
     font-size: 36px;
     font-weight: bold;
-    margin-left: 10vw;
-    margin-top: 5vh;
-    padding-right: 20px;
+    text-align: left;
+    margin-top: 50px;
   }
   .list-container{
-    width: 80%;
+    width: 1300px;
     height: 70%;
-    margin-top: 3vh;
-    margin-left: 10vw;
+    margin-top: 50px;
     //overflow-y: scroll;
   }
   .list-head{
@@ -26,6 +26,7 @@
     flex-direction: row;
     text-align: center;
     background-color: black;
+    padding-right: 20px;
     color: white;
     height: 40px;
     align-items: center;
@@ -56,7 +57,7 @@
     display: flex;
     flex-direction: row;
     text-align: center;
-    height: 40px;
+    height: 60px;
     align-items: center;
     border-bottom: 1px solid lightgray;
     flex-shrink: 0;
@@ -78,6 +79,8 @@
   }
   .write{
     position: relative;
+    width: 1300px;
+    text-align: right;
     &-button{
       height: 50px;
       width: 150px;
@@ -86,8 +89,6 @@
       background-color: black;
       color:white;
       float: right;
-      margin-right: 12vh;
-      margin-top: 1vh;
     }
   }
 }

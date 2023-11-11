@@ -18,6 +18,7 @@
 }
 .itembox .item-img-banner {
   width: 80%;
+  overflow: auto;
 }
 .itembox .item-text {
   width: 100%;
