@@ -20,7 +20,12 @@ const Gnb = ({
   return (
     <div className='gnb'>
       <div className='gnb-logo'>
-        <img src={images.logo_b} />
+        <img
+          src={images.logo_b}
+          onClick={() => {
+            onTabClick('/');
+          }}
+        />
       </div>
       <div className='gnb-nav'>
         <div className='gnb-nav-s1'>
@@ -43,7 +48,6 @@ const Gnb = ({
                   key={index}
                   onClick={() => {
                     onDropBoxClick();
-                    //onTabClick(tab.path);
                   }}>
                   <span>{tab.label}</span>
                   <img src={dropBox ? images.up_w : images.down_w} />
