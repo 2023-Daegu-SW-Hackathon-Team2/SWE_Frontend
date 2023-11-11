@@ -38,8 +38,9 @@
       flex-direction: row;
       align-items: center;
       //justify-content: space-between;
-      gap: 60px;
+      gap: 100px;
       .tab {
+        position: relative;
         width: fit-content;
         font-family: Pretendard;
 
@@ -50,6 +51,48 @@
         font-style: normal;
         font-weight: 400;
         line-height: normal;
+        img {
+          width: 16px;
+        }
+        &-dropbox {
+          position: absolute;
+
+          top: 55px;
+          width: 200%;
+          height: fit-content;
+          display: flex;
+          flex-direction: column;
+          //background-color: red;
+          border-top: 1px solid #3c3c3c;
+          border-left: 1px solid #3c3c3c;
+          border-right: 1px solid #3c3c3c;
+          background: white;
+          z-index: 10;
+          opacity: 0;
+          visibility: hidden;
+          transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+          .droptab {
+            width: 100%;
+            height: 50px;
+            color: #9e9e9e;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-bottom: 1px solid #3c3c3c;
+            &:hover {
+              background-color: #dedede;
+              color: black;
+            }
+          }
+          &-active {
+            @extend .tab-dropbox;
+            opacity: 1;
+            visibility: visible;
+          }
+        }
+        img {
+          margin-left: 8px;
+        }
         &:hover {
           cursor: pointer;
         }
