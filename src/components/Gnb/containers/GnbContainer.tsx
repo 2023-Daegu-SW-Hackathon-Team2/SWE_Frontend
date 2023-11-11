@@ -2,9 +2,11 @@ import React, { useCallback, useState } from 'react';
 import Gnb from '../Gnb';
 import { GNBTableTypes } from '@typedef/types';
 import { useNavigate } from 'react-router-dom';
-type Props = {};
+type Props = {
+  location: string;
+};
 
-const GnbContainer = (props: Props) => {
+const GnbContainer = ({ location }: Props) => {
   const navigate = useNavigate();
   const [dropBox, setDropBox] = useState(false);
   const onDropBoxClick = useCallback(() => {
@@ -60,7 +62,7 @@ const GnbContainer = (props: Props) => {
     window.scrollTo(0, 0);
   }, []);
 
-  return (
+  return !location.includes('admin') ? (
     <Gnb
       tabTable={tabTable}
       onTabClick={onTabCLick}
@@ -68,6 +70,8 @@ const GnbContainer = (props: Props) => {
       dropBox={dropBox}
       onDropBoxClick={onDropBoxClick}
     />
+  ) : (
+    <></>
   );
 };
 
