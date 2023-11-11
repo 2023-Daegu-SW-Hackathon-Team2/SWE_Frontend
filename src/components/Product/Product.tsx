@@ -1,16 +1,18 @@
 import React from 'react';
+import images from 'src/assets/images';
 import { HomeItem } from '@typedef/types';
 import ItemboxContainer from '@components/Itembox/containers/ItemboxContainer';
+import './styles/product.styles.css';
 type Props = {
   itemList: HomeItem[];
-  title: string;
+  productType: string;
 };
 
-const HomeItems = ({ itemList, title }: Props) => {
+const Product = ({ itemList, productType }: Props) => {
   return (
-    <div className='home-items'>
-      <div className='home-items-head'>{title}</div>
-      <div className='home-items-body'>
+    <div className='product'>
+      <div className='product-header'>{productType}</div>
+      <div className='product-body'>
         {itemList.map((item, index) => (
           <ItemboxContainer
             id={item.id}
@@ -18,7 +20,6 @@ const HomeItems = ({ itemList, title }: Props) => {
             image={item.image}
             name={item.name}
             price={item.price}
-            key={index}
           />
         ))}
       </div>
@@ -26,4 +27,4 @@ const HomeItems = ({ itemList, title }: Props) => {
   );
 };
 
-export default HomeItems;
+export default Product;

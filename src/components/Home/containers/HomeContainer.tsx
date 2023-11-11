@@ -11,12 +11,14 @@ const HomeContainer = (props: Props) => {
   const title2 = '베스트';
   for (let i = 0; i < 4; i++) {
     const tempItem1: HomeItem = {
+      id: 1000 + i,
       type: 'big',
       image: images.logo_orca_b,
       name: `린넨 오버핏 골지 맨투맨 ${i + 1}`,
       price: 75000,
     };
     const tempItem2: HomeItem = {
+      id: 2000 + i,
       type: 'big',
       image: images.logo_orca_b,
       name: `린넨 머슬핏 골지 맨투맨 ${i + 1}`,
