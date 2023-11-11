@@ -12,6 +12,7 @@ import {
   Routes,
 } from 'react-router-dom';
 import './styles/rootnavigation.style.css';
+import FooterContainer from '@components/Footer/containers/FooterContainer';
 
 const RootNavigation = () => {
   const location = useLocation();
@@ -26,6 +27,7 @@ const RootNavigation = () => {
         <Route path='/cart' element={<CartContainer />} />
         <Route path='/productinfo/:id' element={<ProductInfoContainer />} />
       </Routes>
+      <FooterContainer />
     </>
   );
 };

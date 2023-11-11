@@ -1,0 +1,21 @@
+.footer{
+    width: 100vw;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &-box{
+        width: 1500px;
+        justify-content: center;
+        font-size: 13pt;
+        color: #a0a0a0;
+        line-height: 160%;
+        letter-spacing: 150%;
+
+        a{
+            text-decoration: underline;
+            color: #666666;
+        }
+    }
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import Cart from '../CartBoard';
+import Cart from '../Cart';
 
 const CartContainer = () => {
   return (
