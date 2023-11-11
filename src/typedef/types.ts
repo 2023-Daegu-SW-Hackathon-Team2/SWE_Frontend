@@ -9,3 +9,10 @@ export type GNBTableTypes = {
   label: string;
   path: string;
 };
+
+export type HomeItem = {
+  type: string;
+  image: string;
+  name: string;
+  price: number;
+};
