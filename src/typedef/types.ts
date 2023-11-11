@@ -17,14 +17,15 @@ export type HomeItem = {
   name: string;
   price: number;
 };
-
 export type CompanyData = {
-  companyName:string;
-  address:string;
-  ceoName:string;
-  companyId:string;
-  phone:string;
-  email:string;
-  sellerId:string;
-  protectName:string;
-}
+  companyName: string;
+  address: string;
+  ceoName: string;
+  companyId: string;
+  phone: string;
+  email: string;
+  sellerId: string;
+  protectName: string;
+};
+
+export type ItemInfo = {};

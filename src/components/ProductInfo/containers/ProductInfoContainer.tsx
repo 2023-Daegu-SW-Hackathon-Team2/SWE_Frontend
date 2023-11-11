@@ -7,13 +7,14 @@ type Props = {};
 
 const ProductInfoContainer = (props: Props) => {
   const params = useParams().id;
-  useEffect(() => {
-    getProductInfo(0).then((data) => {
-      console.log(data);
-    });
 
-    return () => {};
-  }, []);
+  // useEffect(() => {
+  //   getProductInfo(0).then((data) => {
+  //     console.log(data);
+  //   });
+
+  //   return () => {};
+  // }, []);
   return <ProductInfo />;
 };
 
