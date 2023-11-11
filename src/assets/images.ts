@@ -6,5 +6,7 @@ const images = {
   minus_button: '/assets/images/minus_button.png',
   down_w: '/assets/images/down-w.svg',
   up_w: '/assets/images/up-w.svg',
+  Rarrow: '/assets/images/arrow_right.png',
+  Larrow: '/assets/images/arrow_left.png',
 };
 export default images;
