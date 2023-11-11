@@ -1,0 +1,153 @@
+.cart {
+  display: flex;
+  width: 100vw;
+  height: 83vh;
+  flex-direction: column;
+  margin-top:17vh;
+  position: fixed;
+  
+  .cart-container{
+    width: 80%;
+    height: 50%;
+    margin-top: 7vh;
+    margin-left: 10vw;
+    //overflow-y: scroll;
+    border-bottom: 1px solid black;
+  }
+  .cart-head{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    background-color: black;
+    color: white;
+    height: 40px;
+    align-items: center;
+    &-info{
+      flex: 5;
+    }
+    &-num{
+      flex: 2;
+    }
+    &-price{
+      flex: 1;
+    }
+    &-deliver{
+      flex: 1;
+    }
+  }
+
+  .cart-item{
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    overflow-y: scroll;
+  }
+  .cart-row{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    height: 150px;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
+    flex-shrink: 0;
+    &-img{
+
+      flex: 3;
+      &-file{
+        width: 120x;
+        height: 120px;
+      }
+    }
+    &-info{
+      flex: 2;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 3%;
+      &-name{
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+    }
+    &-num{
+      justify-content: center;
+      flex: 2;
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      &-text{
+        height: 20px;
+      }
+      &-button{
+        width: 20px;
+        height: 20px;
+      }
+      &-image{
+        width: 20px;
+        height: 20px;
+      }
+    }
+    &-price{
+      flex: 1;
+    }
+    &-deliver{
+      flex: 1;
+    }
+  }
+
+  .total-container{
+    position: relative;
+    height: 20%;
+    width: 30vw;
+    float: right;
+    margin-left: 60vw;
+    margin-top: 3vh;
+  }
+
+  .product-total{
+    height: 50px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    &-name{
+      flex: 1;
+    }
+
+    &-money{
+      flex: 1;
+    }  
+  }
+    .product-money{
+      height: 50px;
+      font-weight: bold;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      text-align: center;
+      border-top: 1px solid lightgray;
+      &-name{
+        flex: 1;
+      }
+  
+      &-money{
+        flex: 1;
+      } 
+    }
+
+    .buy{
+    position: relative;
+    &-button{
+      height: 50px;
+      width: 150px;
+      border-radius: 5px;
+      border: 0px;
+      background-color: black;
+      color:white;
+      float: right;
+      margin-right: 12vh;
+      margin-top: 1vh;
+    }
+  }
+}
