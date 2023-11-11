@@ -43,6 +43,7 @@ export type ItemInfo = {
   choose: string[];
   description: string;
   id: number;
+  img: string[];
   price: number;
   title: string;
   user_id: string;
@@ -50,5 +51,13 @@ export type ItemInfo = {
 
 export type SelectedItem = {
   label: string;
+  choose: string;
   quantity: number;
+};
+
+export type BagPost = {
+  product_id: number;
+  quantity: number;
+  created_user_id: string;
+  choose: string;
 };

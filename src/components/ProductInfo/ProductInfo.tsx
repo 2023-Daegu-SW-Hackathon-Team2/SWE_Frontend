@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles/productinfo.styles.css';
 import images from 'src/assets/images';
-import { ItemInfo, VoidFunc, SelectedItem } from '@typedef/types';
+import { ItemInfo, VoidFunc, SelectedItem, BagPost } from '@typedef/types';
 type Props = {
   productInfo: ItemInfo;
   dropbox: boolean;
@@ -12,6 +12,7 @@ type Props = {
   onSubClick: (index: number) => void;
   onDeleteClick: (index: number) => void;
   totalQuantity: number;
+  onBagClick: VoidFunc;
 };
 
 const ProductInfo = ({
@@ -24,11 +25,12 @@ const ProductInfo = ({
   onSubClick,
   onDeleteClick,
   totalQuantity,
+  onBagClick,
 }: Props) => {
   return (
     <div className='pInfo'>
       <div className='pInfo-info'>
-        <img src={images.logo_orca_b} />
+        <img src={productInfo.img[0]} />
         <div className='pInfo-info-text'>
           <div className='pInfo-info-text-name'>{productInfo.title}</div>
           <div className='pInfo-info-text-price'>
@@ -102,7 +104,13 @@ const ProductInfo = ({
       </div>
       <div className='pInfo-purchase'>
         <button className='buy'>구매하기</button>
-        <button className='bag'>장바구니에 담기</button>
+        <button
+          className='bag'
+          onClick={() => {
+            onBagClick();
+          }}>
+          장바구니에 담기
+        </button>
       </div>
       <div className='pInfo-divider' />
       <div className='pInfo-dimg'>

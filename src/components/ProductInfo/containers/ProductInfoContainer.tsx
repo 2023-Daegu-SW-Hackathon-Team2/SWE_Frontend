@@ -4,27 +4,40 @@ import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { getProductInfo } from 'src/api/ProductAPI';
 import { ItemInfo } from '@typedef/types';
-import { SelectedItem } from '@typedef/types';
+import images from 'src/assets/images';
+import { SelectedItem, BagPost } from '@typedef/types';
+import { postBagList } from 'src/api/CartAPI';
 type Props = {};
 
 const ProductInfoContainer = (props: Props) => {
   const params: any = useParams().id;
   const [dropbox, setDropbox] = useState(false);
+  const [bagList, setBagList] = useState<BagPost[]>([]);
   const [totalQuantity, setTotalQuantity] = useState(0);
   const [selectedItem, setSelectedItem] = useState<SelectedItem[]>([]);
+  const [productInfo, setProductInfo] = useState<ItemInfo>({
+    category: 0,
+    choose: [],
+    description: '',
+    img: [images.logo_orca_b],
+    id: parseInt(params),
+    price: 0,
+    title: '',
+    user_id: '',
+  });
   const onDropboxClick = useCallback(() => {
     setDropbox((prev) => !prev);
   }, [dropbox]);
 
-  const productInfo: ItemInfo = {
-    category: 4,
-    choose: ['S', 'M', 'L', 'XL', '2XL'],
-    description: '최민중과 임재윤을 사랑에 빠지게 만든 그 제품',
-    id: parseInt(params),
-    price: 8800,
-    title: '채찍',
-    user_id: 'whip',
-  };
+  // const productInfo: ItemInfo = {
+  //   category: 4,
+  //   choose: ['S', 'M', 'L', 'XL', '2XL'],
+  //   description: '최민중과 임재윤을 사랑에 빠지게 만든 그 제품',
+  //   id: parseInt(params),
+  //   price: 8800,
+  //   title: '채찍',
+  //   user_id: 'whip',
+  // };
 
   const formatCurrency = (value: number) => {
     return Number(value).toLocaleString('en-US', {
@@ -59,32 +72,41 @@ const ProductInfoContainer = (props: Props) => {
     [selectedItem],
   );
 
-  // const onAddClick = useCallback(
-  //   (index:number) => {
-
-  //   },
-  //   [],
-  // )
-
   useEffect(() => {
-    getProductInfo(40).then((data) => {
+    const fetchData = async () => {
+      const data = await getProductInfo(parseInt(params));
+      console.log(data[0]);
+      setProductInfo(data[0]);
       console.log(data);
-    });
+      console.log(data[0].choose);
+      const updatedList = [];
+      for (let i = 0; i < data[0].choose.length; i++) {
+        const tempItem = {
+          label: `${data[0].title} ${data[0].choose[i]}`,
+          choose: data[0].choose[i],
+          quantity: 0,
+        };
+        updatedList.push(tempItem);
+      }
+      setSelectedItem(updatedList);
+    };
+
+    fetchData();
 
     return () => {};
-  }, []);
-  useEffect(() => {
-    const updatedList = [];
-    for (let i = 0; i < productInfo.choose.length; i++) {
-      const tempItem = {
-        label: `${productInfo.title} ${productInfo.choose[i]}`,
-        quantity: 0,
-      };
-      updatedList.push(tempItem);
+  }, [params]);
+  console.log(selectedItem);
+  // useEffect(() => {
+  //   setAfterGet();
+
+  //   return () => {};
+  // }, []);
+  const onBagClick = useCallback(() => {
+    for (let i = 0; i < bagList.length; i++) {
+      postBagList(bagList[i]);
     }
-    setSelectedItem(updatedList);
-    return () => {};
-  }, []);
+  }, [bagList]);
+
   useEffect(() => {
     let temp = 0;
     for (let i = 0; i < selectedItem.length; i++) {
@@ -93,7 +115,23 @@ const ProductInfoContainer = (props: Props) => {
     setTotalQuantity(temp);
     return () => {};
   }, [selectedItem]);
+  useEffect(() => {
+    const updateList: BagPost[] = [];
+    for (let i = 0; i < selectedItem.length; i++) {
+      if (selectedItem[i].quantity !== 0) {
+        updateList.push({
+          product_id: parseInt(params),
+          quantity: selectedItem[i].quantity,
+          created_user_id: '원석',
+          choose: selectedItem[i].choose,
+        });
+      }
+    }
+    setBagList(updateList);
+    return () => {};
+  }, [selectedItem]);
 
+  console.log(selectedItem);
   return (
     <ProductInfo
       productInfo={productInfo}
@@ -105,6 +143,7 @@ const ProductInfoContainer = (props: Props) => {
       onSubClick={onSubClick}
       onDeleteClick={onDeleteClick}
       totalQuantity={totalQuantity}
+      onBagClick={onBagClick}
     />
   );
 };
