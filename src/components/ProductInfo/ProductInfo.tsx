@@ -30,7 +30,13 @@ const ProductInfo = ({
   return (
     <div className='pInfo'>
       <div className='pInfo-info'>
-        <img src={productInfo.img[0]} />
+        <img
+          src={
+            !productInfo.img || productInfo.img.length === 0
+              ? images.logo_orca_b
+              : productInfo.img[0]
+          }
+        />
         <div className='pInfo-info-text'>
           <div className='pInfo-info-text-name'>{productInfo.title}</div>
           <div className='pInfo-info-text-price'>
