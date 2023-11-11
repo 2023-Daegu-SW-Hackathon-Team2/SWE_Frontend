@@ -4,6 +4,7 @@
   height: 180px;
   display: flex;
   flex-direction: column;
+  z-index: 30;
 
   &* {
     font-family: Pretendard;

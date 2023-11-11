@@ -10,6 +10,7 @@ import {
   Routes,
 } from 'react-router-dom';
 import './styles/rootnavigation.style.css';
+import FooterContainer from '@components/Footer/containers/FooterContainer';
 
 const RootNavigation = () => {
   const location = useLocation();
@@ -21,6 +22,7 @@ const RootNavigation = () => {
         <Route path='/listBoard' element={<ListBoardContainer />} />
         <Route path='/cart' element={<CartContainer />} />
       </Routes>
+      <FooterContainer />
     </>
   );
 };
