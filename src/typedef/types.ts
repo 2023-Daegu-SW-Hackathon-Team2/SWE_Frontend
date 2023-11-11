@@ -17,6 +17,16 @@ export type HomeItem = {
   name: string;
   price: number;
 };
+
+export type ItemList = {
+  image: string;
+  name: string;
+  detail: string;
+  quantity:number;
+  choose:string;
+  price:number;
+}
+
 export type CompanyData = {
   companyName: string;
   address: string;
