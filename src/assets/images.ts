@@ -8,5 +8,7 @@ const images = {
   up_w: '/assets/images/up-w.svg',
   Rarrow: '/assets/images/arrow_right.png',
   Larrow: '/assets/images/arrow_left.png',
+  x: '/assets/images/x.svg',
+  delete: '/assets/images/delete.svg',
 };
 export default images;
