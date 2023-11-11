@@ -1,0 +1,144 @@
+.cart {
+  display: flex;
+  width: 100vw;
+  height: 83vh;
+  flex-direction: column;
+  margin-top: 17vh;
+  position: fixed;
+}
+.cart .cart-container {
+  width: 80%;
+  height: 50%;
+  margin-top: 7vh;
+  margin-left: 10vw;
+  border-bottom: 1px solid black;
+}
+.cart .cart-head {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  background-color: black;
+  color: white;
+  height: 40px;
+  align-items: center;
+}
+.cart .cart-head-info {
+  flex: 5;
+}
+.cart .cart-head-num {
+  flex: 2;
+}
+.cart .cart-head-price {
+  flex: 1;
+}
+.cart .cart-head-deliver {
+  flex: 1;
+}
+.cart .cart-item {
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+  overflow-y: scroll;
+}
+.cart .cart-row {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  height: 150px;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
+  flex-shrink: 0;
+}
+.cart .cart-row-img {
+  flex: 3;
+}
+.cart .cart-row-img-file {
+  width: 120x;
+  height: 120px;
+}
+.cart .cart-row-info {
+  flex: 2;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 3%;
+}
+.cart .cart-row-info-name {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.cart .cart-row-num {
+  justify-content: center;
+  flex: 2;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.cart .cart-row-num-text {
+  height: 20px;
+}
+.cart .cart-row-num-button {
+  width: 20px;
+  height: 20px;
+}
+.cart .cart-row-num-image {
+  width: 20px;
+  height: 20px;
+}
+.cart .cart-row-price {
+  flex: 1;
+}
+.cart .cart-row-deliver {
+  flex: 1;
+}
+.cart .total-container {
+  position: relative;
+  height: 20%;
+  width: 30vw;
+  float: right;
+  margin-left: 60vw;
+  margin-top: 3vh;
+}
+.cart .product-total {
+  height: 50px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+}
+.cart .product-total-name {
+  flex: 1;
+}
+.cart .product-total-money {
+  flex: 1;
+}
+.cart .product-money {
+  height: 50px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  border-top: 1px solid lightgray;
+}
+.cart .product-money-name {
+  flex: 1;
+}
+.cart .product-money-money {
+  flex: 1;
+}
+.cart .buy {
+  position: relative;
+}
+.cart .buy-button {
+  height: 50px;
+  width: 150px;
+  border-radius: 5px;
+  border: 0px;
+  background-color: black;
+  color: white;
+  float: right;
+  margin-right: 12vh;
+  margin-top: 1vh;
+}/*# sourceMappingURL=cart.styles.css.map */
