@@ -13,6 +13,7 @@ const HomeItems = ({ itemList, title }: Props) => {
       <div className='home-items-body'>
         {itemList.map((item, index) => (
           <ItemboxContainer
+            id={item.id}
             type={item.type}
             image={item.image}
             name={item.name}

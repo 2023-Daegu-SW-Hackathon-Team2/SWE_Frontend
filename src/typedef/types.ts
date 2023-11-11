@@ -11,6 +11,7 @@ export type GNBTableTypes = {
 };
 
 export type HomeItem = {
+  id: number;
   type: string;
   image: string;
   name: string;

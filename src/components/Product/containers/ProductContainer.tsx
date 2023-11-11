@@ -6,12 +6,13 @@ import { useParams } from 'react-router-dom';
 type Props = {};
 
 const ProductContainer = (props: Props) => {
-  const params = useParams().id;
+  const params: any = useParams().id;
   console.log(params);
   const itemList: HomeItem[] = [];
   const productType = `상품 카테고리 ${params}`;
   for (let i = 0; i < 20; i++) {
     const tempItem: HomeItem = {
+      id: parseInt(params) * 100 + i,
       type: 'small',
       image: images.logo_orca_b,
       name: `린넨 오버핏 골지 옷종류${params} ${i + 1}`,

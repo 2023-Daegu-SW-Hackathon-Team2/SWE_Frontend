@@ -3,6 +3,7 @@ import GnbContainer from '@components/Gnb/containers/GnbContainer';
 import ListBoardContainer from '@components/ListBoard/containers/ListBoardContainer';
 import CartContainer from '@components/Cart/containers/CartContainer';
 import ProductContainer from '@components/Product/containers/ProductContainer';
+import ProductInfoContainer from '@components/ProductInfo/containers/ProductInfoContainer';
 import React, { useEffect, useState } from 'react';
 import {
   BrowserRouter as Router,
@@ -23,6 +24,7 @@ const RootNavigation = () => {
         <Route path='/product/:id' element={<ProductContainer />} />
         <Route path='/listBoard' element={<ListBoardContainer />} />
         <Route path='/cart' element={<CartContainer />} />
+        <Route path='/productinfo/:id' element={<ProductInfoContainer />} />
       </Routes>
     </>
   );
