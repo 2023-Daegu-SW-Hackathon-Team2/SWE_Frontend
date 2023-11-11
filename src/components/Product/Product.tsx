@@ -15,6 +15,7 @@ const Product = ({ itemList, productType }: Props) => {
       <div className='product-body'>
         {itemList.map((item, index) => (
           <ItemboxContainer
+            key={index}
             id={item.id}
             type={item.type}
             image={item.image}

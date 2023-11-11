@@ -28,9 +28,9 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
     transition: 'transform 0.3s' // 부드러운 전환 효과
   };
 
-  if (!Array.isArray(images) || images.length <= 0) {
-    return null;
-  }
+  // if (images.length <= 0) {
+  //   return null;
+  // }
 
   return (
   <div className="home-banner">
