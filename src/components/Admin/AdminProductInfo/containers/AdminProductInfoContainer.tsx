@@ -9,15 +9,8 @@ import { deleteGnbCategory, putGnbCategory } from 'src/api/GnbAPI';
 type Props = {};
 
 const AdminProductInfoContainer = (props: Props) => {
-  const [files, setFiles] = useState<File[]>([]);
-  const [fileNames, setFileNames] = useState<string[]>([]);
   const [datas, setDatas] = useState<ItemInfo>();
-  const [title, setTitle] = useState<string>('');
   const [img, setImg] = useState<string>('');
-  const [price, setPrice] = useState<number>(0);
-  const [category, setCategory] = useState<number>(0);
-  const [choose, setChoose] = useState<string[]>([]);
-  const [desc, setDesc] = useState<string>('');
   const params: any = useParams().id;
 
   const categoryList = ['bottom', 'top', 'outer', 'shoes', 'acc'];
@@ -29,27 +22,13 @@ const AdminProductInfoContainer = (props: Props) => {
     });
   }, []);
 
-  const handleFileChange = (event: EFile) => {
-    if (event.target.files) {
-      const selectedFiles = Array.from(event.target.files);
-      setFiles(selectedFiles);
-      setFileNames(selectedFiles.map((file) => file.name));
-    }
-  };
-  const onUploadClick = useCallback(() => {
-    uploadImage(files).then((res) => {
-      setImg(res);
-    });
-  }, [files]);
 
   return (
     <div>
       {datas ? (
         <AdminProductInfo
-          handleFileChange={handleFileChange}
-          fileNames={fileNames}
-          onUploadClick={onUploadClick}
           data={datas}
+          imgs={img}
         />
       ) : (
         <div>Loading</div>

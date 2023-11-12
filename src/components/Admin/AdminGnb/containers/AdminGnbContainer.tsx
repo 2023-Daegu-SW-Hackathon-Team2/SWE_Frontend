@@ -8,10 +8,6 @@ const AdminGnbContainer = ({ location }: Props) => {
   const navigate = useNavigate();
   const tabTable: GNBTableTypes[] = [
     {
-      label: 'Theme',
-      path: '/admin/theme',
-    },
-    {
       label: 'GNB',
       path: '/admin/gnb',
     },
@@ -26,12 +22,7 @@ const AdminGnbContainer = ({ location }: Props) => {
     {
       label: 'Add',
       path: '/admin/add',
-    },
-
-    {
-      label: 'Community',
-      path: '/admin/ommunity',
-    },
+    }
   ];
   const [selectedTab, setSelectedTab] = useState<string>('/admin');
   const onTabClicked = useCallback(
