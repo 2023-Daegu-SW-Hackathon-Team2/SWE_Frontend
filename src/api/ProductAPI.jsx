@@ -30,3 +30,14 @@ export async function getCategoryTitle(category_id) {
       return data;
     });
 }
+
+export async function deleteProduct(id){
+  const baseUrl = 'http://localhost:8000';
+  return fetch(`${baseUrl}/products/${id}`,{
+    method: 'DELETE',
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      return data;
+    })
+}
