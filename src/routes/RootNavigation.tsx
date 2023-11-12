@@ -18,6 +18,7 @@ import './styles/rootnavigation.style.css';
 import FooterContainer from '@components/Footer/containers/FooterContainer';
 import AdminProductInfoContainer from '@components/Admin/AdminProductInfo/containers/AdminProductInfoContainer';
 import AdminProductContainer from '@components/Admin/AdminProduct/containers/AdminProductContainer';
+import AdminAddContainer from '@components/Admin/AdminAdd/containers/AdminAddContainer';
 
 const RootNavigation = () => {
   const location = useLocation();
@@ -41,6 +42,7 @@ const RootNavigation = () => {
           path='/admin/productinfo/:id'
           element={<AdminProductInfoContainer />}
         />
+        <Route path='/admin/add' element={<AdminAddContainer />} />
         <Route path='/admin/gnb' element={<GnbModifyContainer />} />
       </Routes>
       <FooterContainer location={location.pathname} />
