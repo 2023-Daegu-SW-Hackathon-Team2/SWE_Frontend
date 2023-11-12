@@ -1,5 +1,6 @@
 .adhome {
-  width: 100%;
+  width: 1920px;
+  position: relative;
   padding-left: 120px;
   height: -moz-fit-content;
   height: fit-content;
@@ -7,6 +8,92 @@
   flex-direction: row;
   align-items: center;
 }
-.adhome-preview {
-  width: 700px;
+.adhome-divider {
+  margin-left: 0px;
+  height: 100%;
+  width: 1px;
+  left: 1000px;
+  position: absolute;
+  background-color: black;
+}
+.adhome-tab {
+  position: absolute;
+  left: 140px;
+  width: 850px;
+  height: 100%;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.adhome-tab-banner {
+  width: 100%;
+  display: grid;
+  grid-template-areas: "input button" "div button";
+}
+.adhome-tab-banner input {
+  grid-area: input;
+  margin-bottom: 10px;
+}
+.adhome-tab-banner div {
+  grid-area: div;
+}
+.adhome-tab-banner button {
+  width: 150px;
+  justify-self: end;
+  grid-area: button;
+  border-radius: 10px;
+}
+.adhome-tab-newbest {
+  width: 100%;
+  display: flex;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  flex-direction: column;
+  align-items: center;
+}
+.adhome-tab-newbest .newbox, .adhome-tab-newbest .bestbox {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.adhome-tab-newbest .newbox input, .adhome-tab-newbest .bestbox input {
+  width: 20%;
+  text-align: center;
+  border: 1px solid black;
+}
+.adhome-tab-newbest .bestbox {
+  margin-top: 20px;
+}
+.adhome-tab-newbest button {
+  margin-top: 20px;
+  width: 150px;
+  align-self: flex-end;
+  height: 50px;
+  border-radius: 10px;
+}
+.adhome-tab-table {
+  width: 50%;
+  height: 401px;
+  display: grid;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  grid-template-columns: 1fr 1fr;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+.adhome-tab-table .tablebox {
+  display: flex;
+  height: 40px;
+  padding-left: 5px;
+  padding-right: 5px;
+  align-items: center;
+  flex-direction: row;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  justify-content: space-between;
 }/*# sourceMappingURL=adminhome.styles.css.map */
