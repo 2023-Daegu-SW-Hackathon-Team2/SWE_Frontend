@@ -82,3 +82,16 @@ export async function uploadImage(files) {
       return data
     });
 }
+
+export async function addProduct(data) {
+  const baseUrl = 'http://localhost:8000';
+  console.log(data[0]);
+  const jsonData = JSON.stringify(data[0]);
+  return fetch(`${baseUrl}/products/`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: jsonData,
+  })
+    .then((res) => res.json())
+    .then((data) => {});
+}

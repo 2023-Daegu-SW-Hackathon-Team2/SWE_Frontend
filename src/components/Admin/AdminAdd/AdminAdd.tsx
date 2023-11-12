@@ -1,23 +1,20 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import './styles/adminadd.styles.css';
-import ProductInfoContainer from '@components/ProductInfo/containers/ProductInfoContainer';
-import { EInput, ShoPT } from '@typedef/types';
-import { updateProduct } from 'src/api/ProductAPI';
+import { EFile, EInput, ShoPT } from '@typedef/types';
+import { addProduct, updateProduct, uploadImage } from 'src/api/ProductAPI';
 import { useParams } from 'react-router-dom';
 import { postGpt } from 'src/api/ShoPTAPI';
 type Props = {
-  handleFileChange: any;
-  fileNames: any;
-  onUploadClick: any;
   data: any;
+  imgs:any;
 };
 
 const AdminAdd = ({
-  handleFileChange,
-  fileNames,
-  onUploadClick,
   data,
+  imgs
 }: Props) => {
+    const [files, setFiles] = useState<File[]>([]);
+  const [fileNames, setFileNames] = useState<string[]>([]);
   const [title, setTitle] = useState<string>('');
   const [img, setImg] = useState<string>('');
   const [price, setPrice] = useState<number>(0);
@@ -86,9 +83,23 @@ const AdminAdd = ({
     [choose],
   );
 
+  const handleFileChange = (event: EFile) => {
+    if (event.target.files) {
+      const selectedFiles = Array.from(event.target.files);
+      setFiles(selectedFiles);
+      setFileNames(selectedFiles.map((file) => file.name));
+    }
+  };
+  const onUploadClick = useCallback(() => {
+    uploadImage(files).then((res) => {
+      setImg(res);
+    });
+  }, [files]);
+
   const onConfirmUpdateProduct = useCallback(() => {
     const Lists: any = [];
     Lists.push({
+        user_id:"hello1",
       title: title,
       img: img,
       price: price,
@@ -96,7 +107,8 @@ const AdminAdd = ({
       category: category,
       choose: choose,
     });
-    updateProduct(params, Lists).then(() => {
+    console.log(Lists);
+    addProduct(Lists).then(() => {
       window.location.reload();
     });
   }, [title, img, price, desc, category, choose]);
@@ -147,7 +159,7 @@ const AdminAdd = ({
         <div className='adproductinfo-tab-banner'>
           <div className='Box-banner'>
             <input type='file' multiple onChange={handleFileChange} />
-            <div>선택된 파일: {fileNames.join(', ')}</div>
+            <div>선택된 파일: {fileNames.join(', ')}<br/>{img}</div>
             <button
               onClick={() => {
                 onUploadClick();
@@ -184,7 +196,7 @@ const AdminAdd = ({
                 <div>카테고리</div>
                 <input
                   type='text'
-                  value={categoryList[category]}
+                  value={category}
                   onChange={(e) => {
                     onChangeCategory(e);
                   }}
@@ -260,7 +272,7 @@ const AdminAdd = ({
             onClick={() => {
               onConfirmUpdateProduct();
             }}>
-            상품 정보 수정하기
+            상품 정보 등록하기
           </button>
         </div>
       </div>

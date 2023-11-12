@@ -1,23 +1,21 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import './styles/adminproductinfo.styles.css';
 import ProductInfoContainer from '@components/ProductInfo/containers/ProductInfoContainer';
-import { EInput, ShoPT } from '@typedef/types';
-import { updateProduct } from 'src/api/ProductAPI';
+import { EFile, EInput, ShoPT } from '@typedef/types';
+import { updateProduct, uploadImage } from 'src/api/ProductAPI';
 import { useParams } from 'react-router-dom';
 import { postGpt } from 'src/api/ShoPTAPI';
 type Props = {
-  handleFileChange: any;
-  fileNames: any;
-  onUploadClick: any;
   data: any;
+  imgs: any;
 };
 
 const AdminProductInfo = ({
-  handleFileChange,
-  fileNames,
-  onUploadClick,
   data,
+  imgs
 }: Props) => {
+  const [files, setFiles] = useState<File[]>([]);
+  const [fileNames, setFileNames] = useState<string[]>([]);
   const [title, setTitle] = useState<string>('');
   const [img, setImg] = useState<string>('');
   const [price, setPrice] = useState<number>(0);
@@ -137,6 +135,19 @@ const AdminProductInfo = ({
       setShopt(res);
     });
   }, [title, price, category, good]);
+
+  const handleFileChange = (event: EFile) => {
+    if (event.target.files) {
+      const selectedFiles = Array.from(event.target.files);
+      setFiles(selectedFiles);
+      setFileNames(selectedFiles.map((file) => file.name));
+    }
+  };
+  const onUploadClick = useCallback(() => {
+    uploadImage(files).then((res) => {
+      setImg(res);
+    });
+  }, [files]);
 
   useEffect(() => {
     console.log(data);
