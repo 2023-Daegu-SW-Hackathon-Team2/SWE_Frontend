@@ -40,7 +40,7 @@ const AdminHomeContainer = (props: Props) => {
     });
     postNewBest(Lists);
     window.location.reload();
-    alert('수정되었지롱');
+    alert('수정되었습니다.');
   }, [homeNewList, homeBestList]);
 
   const handleFileChange = (event: EFile) => {
@@ -54,7 +54,7 @@ const AdminHomeContainer = (props: Props) => {
     console.log(files);
     postBanner(files);
     window.location.reload();
-    alert('수정되었지롱');
+    alert('수정되었습니다.');
   }, [files]);
   useEffect(() => {
     const fetchData = async () => {

@@ -1,38 +1,38 @@
-.adproductinfo {
-  transform: scale(2, 1);
-  width: 100%;
-  padding-left: 120px;
+.adProductinfo {
+  transform: scale(1.3, 1.3);
+  width: 50%;
+  margin-left: 470px;
   height: -moz-fit-content;
   height: fit-content;
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-.adproductinfo .Box, .adproductinfo .Box-banner {
+.adProductinfo .Box, .adProductinfo .Box-banner {
   width: 100%;
   border: solid 1px black;
   border-radius: 10px;
   margin-bottom: 20px;
   padding: 10px;
 }
-.adproductinfo .Box-banner {
+.adProductinfo .Box-banner {
   display: grid;
   grid-template-areas: "input button" "div button";
 }
-.adproductinfo .Box-banner input {
+.adProductinfo .Box-banner input {
   grid-area: input;
   margin-bottom: 10px;
 }
-.adproductinfo .Box-banner div {
+.adProductinfo .Box-banner div {
   grid-area: div;
 }
-.adproductinfo .Box-banner button {
+.adProductinfo .Box-banner button {
   width: 150px;
   justify-self: end;
   grid-area: button;
   border-radius: 10px;
 }
-.adproductinfo-divider {
+.adProductinfo-divider {
   margin-left: 0px;
   height: 100%;
   width: 1px;
@@ -40,7 +40,7 @@
   position: absolute;
   background-color: black;
 }
-.adproductinfo-tab {
+.adProductinfo-tab {
   position: absolute;
   left: 180px;
   width: 750px;
@@ -50,47 +50,47 @@
   flex-direction: column;
   align-items: center;
 }
-.adproductinfo-tab-banner {
+.adProductinfo-tab-banner {
   width: 100%;
 }
-.adproductinfo-tab-input {
+.adProductinfo-tab-input {
   width: 100%;
   flex-direction: column;
   align-items: center;
 }
-.adproductinfo-tab-input .flex {
+.adProductinfo-tab-input .flex {
   display: flex;
   gap: 20px;
 }
-.adproductinfo-tab-input .input {
+.adProductinfo-tab-input .input {
   width: 100%;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
 }
-.adproductinfo-tab-input .input .title {
+.adProductinfo-tab-input .input .title {
   width: 100%;
 }
-.adproductinfo-tab-input .input input {
+.adProductinfo-tab-input .input input {
   width: 100%;
   height: 30px;
   padding-left: 10px;
   border: 1px solid black;
 }
-.adproductinfo-tab-input button {
+.adProductinfo-tab-input button {
   width: 150px;
   height: 50px;
   justify-self: end;
   grid-area: button;
   border-radius: 10px;
 }
-.adproductinfo .chooseBox {
+.adProductinfo .chooseBox {
   display: grid;
   grid-template-areas: " 1fr 1fr";
   gap: 20px;
 }
-.adproductinfo .chooseBox-box {
+.adProductinfo .chooseBox-box {
   padding: 10px;
   gap: 10px;
   border: 1px solid black;
@@ -100,19 +100,19 @@
   align-items: center;
   height: 50px;
 }
-.adproductinfo .chooseBox-box input {
+.adProductinfo .chooseBox-box input {
   font-family: Pretendard;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
   width: 75%;
 }
-.adproductinfo .chooseBox button {
+.adProductinfo .chooseBox button {
   width: 80px;
   height: 30px;
   border-radius: 5px;
 }
-.adproductinfo .chooseBox-add {
+.adProductinfo .chooseBox-add {
   width: 50%;
   height: 50px;
   margin-top: 40px;
@@ -122,7 +122,7 @@
   align-items: center;
   gap: 10px;
 }
-.adproductinfo .chooseBox-add input {
+.adProductinfo .chooseBox-add input {
   width: 50%;
   border: 1px solid black;
   padding: 0 10px;
@@ -132,15 +132,15 @@
   font-style: normal;
   font-weight: 400;
 }
-.adproductinfo .chooseBox-add button {
+.adProductinfo .chooseBox-add button {
   width: 50px;
   height: 50px;
 }
-.adproductinfo .shoptBox, .adproductinfo .shoptBox-keyword {
+.adProductinfo .shoptBox, .adProductinfo .shoptBox-keyword {
   display: flex;
   justify-content: space-between;
 }
-.adproductinfo .shoptBox-keyword {
+.adProductinfo .shoptBox-keyword {
   padding-left: 10px;
   border: 1px solid black;
   width: 70%;
@@ -149,11 +149,11 @@
   align-items: center;
   height: 50px;
 }
-.adproductinfo .shoptBox-keyword input {
+.adProductinfo .shoptBox-keyword input {
   width: 300px;
   padding-left: 10px;
   height: 30px;
 }
-.adproductinfo .submit {
+.adProductinfo .submit {
   float: right;
 }/*# sourceMappingURL=adminadd.styles.css.map */

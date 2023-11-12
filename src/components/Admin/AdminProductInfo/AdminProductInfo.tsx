@@ -260,6 +260,7 @@ const AdminProductInfo = ({
               </button>
             </div>
           </div>
+          <div>{shopt}</div>
           <button
             className='submit'
             onClick={() => {

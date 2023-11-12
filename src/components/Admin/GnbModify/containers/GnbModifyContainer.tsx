@@ -52,6 +52,7 @@ const GnbModifyContainer = (props: Props) => {
   );
   const onUploadClick = useCallback(() => {
     postLogo(selectedLogo);
+    alert('수정되었습니다.');
   }, [selectedLogo]);
   const onChangeCategory = useCallback(
     (e: EInput, index: number) => {
