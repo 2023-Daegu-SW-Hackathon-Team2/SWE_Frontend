@@ -6,6 +6,7 @@ import ProductContainer from '@components/Product/containers/ProductContainer';
 import ProductInfoContainer from '@components/ProductInfo/containers/ProductInfoContainer';
 import AdminHomeContainer from '@components/Admin/AdminHome/containers/AdminHomeContainer';
 import AdminGnbContainer from '@components/Admin/AdminGnb/containers/AdminGnbContainer';
+import GnbModifyContainer from '@components/Admin/GnbModify/containers/GnbModifyContainer';
 import React, { useEffect, useState } from 'react';
 import {
   BrowserRouter as Router,
@@ -30,6 +31,7 @@ const RootNavigation = () => {
         <Route path='/cart' element={<CartContainer />} />
         <Route path='/productinfo/:id' element={<ProductInfoContainer />} />
         <Route path='/admin/' element={<AdminHomeContainer />} />
+        <Route path='/admin/gnb' element={<GnbModifyContainer />} />
       </Routes>
       <FooterContainer location={location.pathname} />
     </>

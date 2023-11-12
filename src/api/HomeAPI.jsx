@@ -36,7 +36,7 @@ export async function postBanner(files) {
   const baseUrl = 'http://localhost:8000'; // NestJS 서버의 URL과 포트 번호
   return fetch(`${baseUrl}/homepages/upload/`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    //headers: { 'Content-Type': 'application/json' },
     body: formData,
   })
     .then((res) => res.json())

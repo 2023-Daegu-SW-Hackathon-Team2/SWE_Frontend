@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { EFile } from '@typedef/types';
 import AdminHome from '../AdminHome';
 import { postBanner } from 'src/api/HomeAPI';
+import { getAllData } from 'src/api/ProductAPI';
 import { getCategoryInfo, getProductInfo } from 'src/api/ProductAPI';
 import { EInput } from '@typedef/types';
 import { postNewBest } from 'src/api/HomeAPI';
@@ -58,16 +59,14 @@ const AdminHomeContainer = (props: Props) => {
   useEffect(() => {
     const fetchData = async () => {
       const totalData: any = [];
-
-      for (let i = 0; i < 5; i++) {
-        const data = await getCategoryInfo(i);
-        for (let i = 0; i < data.length; i++) {
-          totalData.push({
-            title: data[i].title,
-            id: data[i].id,
-          });
-        }
+      const data = await getAllData();
+      for (let i = 0; i < data.length; i++) {
+        totalData.push({
+          title: data[i].title,
+          id: data[i].id,
+        });
       }
+
       setDataList(totalData);
       console.log(totalData);
     };
