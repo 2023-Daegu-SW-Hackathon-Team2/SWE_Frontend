@@ -5,7 +5,103 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  &-preview {
-    width: 700px;
+
+  &-divider {
+    margin-left: 0px;
+    height: 100%;
+    width: 1px;
+    left: 1000px;
+    position: absolute;
+    background-color: black;
   }
+
+  &-tab {
+    position: absolute;
+    left: 140px;
+    width: 750px;
+    height: 100%;
+
+    padding-top: 100px;
+    padding-bottom: 100px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    //justify-content: center;
+    &-banner {
+      width: 100%;
+      display: grid;
+      input {
+        grid-area: input;
+        margin-bottom: 10px;
+      }
+      div {
+        grid-area: div;
+      }
+      button {
+        width: 150px;
+        justify-self: end;
+        grid-area: button;
+        border-radius: 10px;
+      }
+      grid-template-areas:
+        'input button'
+        'div button';
+    }
+    &-newbest {
+      width: 100%;
+      display: flex;
+      margin-top: 100px;
+      margin-bottom: 100px;
+      flex-direction: column;
+      align-items: center;
+      .newbox {
+        width: 100%;
+        height: 40px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        input {
+          width: 20%;
+          text-align: center;
+          border: 1px solid black;
+        }
+      }
+      .bestbox {
+        @extend .newbox;
+        margin-top: 20px;
+      }
+      button {
+        margin-top: 20px;
+        width: 150px;
+        align-self: flex-end;
+        height: 50px;
+        border-radius: 10px;
+      }
+    }
+    &-table {
+      width: 50%;
+      height: 401px;
+      display: grid;
+      border-top: 1px solid black;
+      border-left: 1px solid black;
+      grid-template-columns: 1fr 1fr;
+      //flex-direction: column;
+      margin-top: 0px;
+      overflow: scroll;
+      overflow-x: hidden;
+      .tablebox {
+        display: flex;
+        height: 40px;
+        padding-left: 5px;
+        padding-right: 5px;
+        align-items: center;
+        flex-direction: row;
+        border-right: 1px solid black;
+        border-bottom: 1px solid black;
+        justify-content: space-between;
+      }
+    }
+  }
+
 }
