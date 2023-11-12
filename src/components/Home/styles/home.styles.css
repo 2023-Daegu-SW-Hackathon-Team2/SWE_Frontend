@@ -89,7 +89,7 @@
 }
 .home-admin {
   padding-top: 0px;
-  margin-left: -180px;
+  margin-left: 20px;
   transform: scale(0.45);
   -webkit-transform-origin-x: right;
   -webkit-transform-origin-y: top;

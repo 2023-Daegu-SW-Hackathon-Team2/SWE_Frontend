@@ -8,6 +8,7 @@ type Props = {
   dropBoxList: GNBTableTypes[];
   dropBox: boolean;
   onDropBoxClick: () => void;
+  logo: string;
 };
 
 const Gnb = ({
@@ -16,12 +17,13 @@ const Gnb = ({
   dropBox,
   dropBoxList,
   onDropBoxClick,
+  logo,
 }: Props) => {
   return (
     <div className='gnb'>
       <div className='gnb-logo'>
         <img
-          src={images.logo_b}
+          src={logo}
           onClick={() => {
             onTabClick('/');
           }}
