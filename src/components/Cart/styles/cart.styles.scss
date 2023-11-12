@@ -1,12 +1,12 @@
 .cart {
   display: flex;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   flex-direction: column;
-  padding-top:180px;
+  padding-top: 180px;
   position: relative;
-  
-  .cart-container{
+
+  .cart-container {
     width: 80%;
     height: 50%;
     margin-top: 7vh;
@@ -14,7 +14,7 @@
     //overflow-y: scroll;
     border-bottom: 1px solid black;
   }
-  .cart-head{
+  .cart-head {
     display: flex;
     padding-right: 20px;
     flex-direction: row;
@@ -23,27 +23,27 @@
     color: white;
     height: 40px;
     align-items: center;
-    &-info{
+    &-info {
       flex: 5;
     }
-    &-num{
+    &-num {
       flex: 2;
     }
-    &-price{
+    &-price {
       flex: 1;
     }
-    &-deliver{
+    &-deliver {
       flex: 1;
     }
   }
 
-  .cart-item{
+  .cart-item {
     display: flex;
     flex-direction: column;
     height: 90%;
     overflow-y: scroll;
   }
-  .cart-row{
+  .cart-row {
     display: flex;
     flex-direction: row;
     text-align: center;
@@ -51,52 +51,51 @@
     align-items: center;
     border-bottom: 1px solid lightgray;
     flex-shrink: 0;
-    &-img{
-
+    &-img {
       flex: 3;
-      &-file{
+      &-file {
         width: 120x;
         height: 120px;
       }
     }
-    &-info{
+    &-info {
       flex: 2;
       text-align: left;
       display: flex;
       flex-direction: column;
       gap: 3%;
-      &-name{
+      &-name {
         font-weight: bold;
         margin-bottom: 10px;
       }
     }
-    &-num{
+    &-num {
       justify-content: center;
       flex: 2;
       display: flex;
       flex-direction: row;
       gap: 20px;
-      &-text{
+      &-text {
         height: 20px;
       }
-      &-button{
+      &-button {
         width: 20px;
         height: 20px;
       }
-      &-image{
+      &-image {
         width: 20px;
         height: 20px;
       }
     }
-    &-price{
+    &-price {
       flex: 1;
     }
-    &-deliver{
+    &-deliver {
       flex: 1;
     }
   }
 
-  .total-container{
+  .total-container {
     position: relative;
     height: 20%;
     width: 30vw;
@@ -105,47 +104,47 @@
     margin-top: 3vh;
   }
 
-  .product-total{
+  .product-total {
     height: 50px;
     font-weight: bold;
     display: flex;
     flex-direction: row;
     align-items: center;
     text-align: center;
-    &-name{
+    &-name {
       flex: 1;
     }
 
-    &-money{
+    &-money {
       flex: 1;
-    }  
+    }
   }
-    .product-money{
-      height: 50px;
-      font-weight: bold;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      text-align: center;
-      border-top: 1px solid lightgray;
-      &-name{
-        flex: 1;
-      }
-  
-      &-money{
-        flex: 1;
-      } 
+  .product-money {
+    height: 50px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    border-top: 1px solid lightgray;
+    &-name {
+      flex: 1;
     }
 
-    .buy{
+    &-money {
+      flex: 1;
+    }
+  }
+
+  .buy {
     position: relative;
-    &-button{
+    &-button {
       height: 50px;
       width: 150px;
       border-radius: 5px;
       border: 0px;
       background-color: black;
-      color:white;
+      color: white;
       float: right;
       margin-right: 12vh;
       margin-top: 1vh;

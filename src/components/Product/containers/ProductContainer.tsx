@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Product from '../Product';
-import { HomeItem } from '@typedef/types';
+import { HomeItem, ViewType } from '@typedef/types';
 import images from 'src/assets/images';
 import { useParams } from 'react-router-dom';
 import { getCategoryInfo, getCategoryTitle } from 'src/api/ProductAPI';
 import HomeItems from '@components/Home/components/HomeItems';
-type Props = {};
 
-const ProductContainer = (props: Props) => {
+const ProductContainer = ({view}: ViewType) => {
   const params: any = useParams().id;
   const [itemList, setItemList] = useState<HomeItem[]>([])
   const [productType, setProductType] = useState("");
@@ -30,7 +29,7 @@ const ProductContainer = (props: Props) => {
     });
   }, [params]);
 
-  return <Product itemList={itemList} productType={productType} />;
+  return <Product itemList={itemList} productType={productType} view={view} />;
 };
 
 export default ProductContainer;

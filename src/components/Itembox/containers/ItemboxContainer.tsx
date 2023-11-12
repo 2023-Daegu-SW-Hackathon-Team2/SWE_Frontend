@@ -20,6 +20,7 @@ const ItemboxContainer = ({ id, type, image, name, price }: Props) => {
   };
   const onItemClick = useCallback(() => {
     navigate(`/productinfo/${id}`);
+    window.scrollTo(0, 0);
   }, []);
 
   return (

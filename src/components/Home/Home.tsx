@@ -11,15 +11,30 @@ type Props = {
   title1: string;
   title2: string;
   images: string[];
+  view: string;
 };
 
-const Home = ({ itemList1, itemList2, title1, title2, images }: Props) => {
-
+const Home = ({
+  itemList1,
+  itemList2,
+  title1,
+  title2,
+  images,
+  view,
+}: Props) => {
   return (
-    <div className='home'>
+    <div className={`home${view}`}>
       <Carousel images={images} />
-      {itemList1.length !== 0 ? <HomeItemsContainer itemList={itemList1} title={title1} /> : <div></div>}
-      {itemList2.length !== 0 ? <HomeItemsContainer itemList={itemList2} title={title2} /> : <div></div>}
+      {itemList1.length !== 0 ? (
+        <HomeItemsContainer itemList={itemList1} title={title1} />
+      ) : (
+        <div></div>
+      )}
+      {itemList2.length !== 0 ? (
+        <HomeItemsContainer itemList={itemList2} title={title2} />
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 };

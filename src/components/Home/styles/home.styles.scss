@@ -1,23 +1,23 @@
 .home {
-  width: 100%;
+  width: 99%;
   padding-top: 180px;
   height: fit-content;
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  &-banner{
+  &-banner {
     display: flex;
-    margin-top: 30px;
+    margin-top: 80px;
     box-sizing: border-box;
-    width: 100vw;
+    width: 100%;
     height: 550px;
     border-style: solid;
     border-color: #000000;
-    border-width: 1px 0px 1px 0px;
+    //border-width: 1px 0px 1px 0px;
     position: relative;
     justify-content: center;
-    
+
     .banner-layout {
       display: flex;
       width: 1500px;
@@ -26,7 +26,7 @@
       justify-content: center;
       align-items: center;
       overflow: hidden;
-      
+
       .arrow {
         z-index: 2;
         width: 50px;
@@ -36,26 +36,26 @@
         overflow: visible;
       }
 
-      .frame{
+      .frame {
         width: 1300px;
         height: 550px;
         overflow: hidden;
       }
 
-      .img-layout{
+      .img-layout {
         z-index: 1;
         display: flex;
         width: 100%;
         height: 100%;
 
-        .img-box{
+        .img-box {
           display: flex;
           width: 1300px;
 
-          .image{
+          .image {
             width: 1300px;
             object-fit: fill;
-            &-active{
+            &-active {
               width: 1300px;
               object-fit: fill;
             }
@@ -87,9 +87,35 @@
       height: 450px;
       display: flex;
       flex-direction: row;
+
       gap: 33px;
       // justify-content: space-between;
       align-items: center;
     }
   }
+  &-admin {
+    @extend .home;
+    //position: absolute;
+    padding-top: 0px;
+    margin-left: -180px;
+    transform: scale(0.45);
+
+    -webkit-transform-origin-x: right;
+    -webkit-transform-origin-y: top;
+    height: 100vh;
+  }
 }
+
+// .home-admin {
+//   @extend .home;
+//   //height: 1000px;
+//   padding-top: 0px;
+//   margin-top: -200px;
+//   transform: scale(0.5, 0.5);
+//   .home-banner {
+//     margin-top: 0px;
+//   }
+//   // .home-items {
+//   //   transform: scale(0.5, 0.5);
+//   // }
+// }
