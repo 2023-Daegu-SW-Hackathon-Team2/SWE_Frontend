@@ -16,7 +16,6 @@ import {
 } from 'react-router-dom';
 import './styles/rootnavigation.style.css';
 import FooterContainer from '@components/Footer/containers/FooterContainer';
-import AdminGnbContainer from '@components/Admin/AdminGnb/containers/AdminGnbContainer';
 import AdminProductInfoContainer from '@components/Admin/AdminProductInfo/containers/AdminProductInfoContainer';
 import AdminProductContainer from '@components/Admin/AdminProduct/containers/AdminProductContainer';
 
@@ -29,13 +28,19 @@ const RootNavigation = () => {
       <Routes location={location}>
         <Route path='/' element={<HomeContainer view={''} />} />
         <Route path='/community' element={<ListBoardContainer />} />
-        <Route path='/product/:id' element={<ProductContainer view={''}/>} />
+        <Route path='/product/:id' element={<ProductContainer view={''} />} />
         <Route path='/listBoard' element={<ListBoardContainer />} />
         <Route path='/cart' element={<CartContainer />} />
-        <Route path='/productinfo/:id' element={<ProductInfoContainer view={''} />} />
+        <Route
+          path='/productinfo/:id'
+          element={<ProductInfoContainer view={''} />}
+        />
         <Route path='/admin/home' element={<AdminHomeContainer />} />
-        <Route path='/admin/product/:id' element={<AdminProductContainer />}/>
-        <Route path='/admin/productinfo/:id' element={<AdminProductInfoContainer />} />
+        <Route path='/admin/product/:id' element={<AdminProductContainer />} />
+        <Route
+          path='/admin/productinfo/:id'
+          element={<AdminProductInfoContainer />}
+        />
         <Route path='/admin/gnb' element={<GnbModifyContainer />} />
       </Routes>
       <FooterContainer location={location.pathname} />

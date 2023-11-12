@@ -7,4 +7,42 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+.gnbmod-logo {
+  width: 900px;
+  height: 50px;
+  margin: auto;
+  margin-top: 50px;
+  border: 1px solid black;
+}
+.gnbmod-logo label {
+  display: flex;
+  align-items: center;
+  width: 900px;
+  height: 50px;
+  margin-left: 15px;
+}
+.gnbmod-logo label img:hover {
+  cursor: pointer;
+}
+.gnbmod-logo label .text {
+  margin-left: 16px;
+  color: #000;
+  /* web. re.22 */
+  font-family: Pretendard;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 34px; /* 127.273% */
+}
+.gnbmod-logo label p {
+  margin-left: 16px;
+  color: var(--Midium-gray, #000);
+  text-align: center;
+  /* web. re.22 */
+  font-family: Pretendard;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px; /* 127.273% */
 }/*# sourceMappingURL=gnbmodify.styles.css.map */
