@@ -102,6 +102,7 @@ const ProductInfoContainer = ({ view }: ViewType) => {
       await postBagList(bagList[i]);
     }
     navigate('/cart');
+    window.scrollTo(0, 0);
   }, [bagList]);
 
   useEffect(() => {

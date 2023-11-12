@@ -1,59 +1,145 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import './styles/adminadd.styles.css';
-
+import ProductInfoContainer from '@components/ProductInfo/containers/ProductInfoContainer';
+import { EInput, ShoPT } from '@typedef/types';
+import { updateProduct } from 'src/api/ProductAPI';
+import { useParams } from 'react-router-dom';
+import { postGpt } from 'src/api/ShoPTAPI';
 type Props = {
   handleFileChange: any;
   fileNames: any;
   onUploadClick: any;
-  onChangeTitle: any;
-  onChangePrice: any;
-  onChangeCategory: any;
-  onChangeDesc: any;
-  onConfirmUpdateProduct: any;
-  onChangeGood: any;
-  shoptClick: any;
   data: any;
-  onDeleteClick: any;
-  onAddClick: any;
-  onChangeOptions: any;
-  newOption: any;
-  onChooseChange: any;
 };
 
 const AdminAdd = ({
   handleFileChange,
   fileNames,
   onUploadClick,
-  onChangeTitle,
-  onChangePrice,
-  onChangeCategory,
-  onChangeDesc,
-  onConfirmUpdateProduct,
-  onChangeGood,
-  shoptClick,
   data,
-  onDeleteClick,
-  onAddClick,
-  onChangeOptions,
-  newOption,
-  onChooseChange,
 }: Props) => {
   const [title, setTitle] = useState<string>('');
+  const [img, setImg] = useState<string>('');
   const [price, setPrice] = useState<number>(0);
   const [category, setCategory] = useState<number>(0);
   const [choose, setChoose] = useState<string[]>([]);
   const [desc, setDesc] = useState<string>('');
+  const [good, setGood] = useState<string>('');
+  const [option, setOption] = useState<string>('');
+  const [shopt, setShopt] = useState<string[]>([]);
   const categoryList = ['bottom', 'top', 'outer', 'shoes', 'acc'];
+  const params: any = useParams().id;
   console.log(data);
+
+  const onChangeTitle = useCallback(
+    (e: EInput) => {
+      setTitle(e.target.value);
+      console.log(e.target.value);
+    },
+    [title],
+  );
+
+  const onChangePrice = useCallback(
+    (e: EInput) => {
+      setPrice(parseInt(e.target.value));
+    },
+    [price],
+  );
+
+  const onChangeCategory = useCallback(
+    (e: EInput) => {
+      setCategory(parseInt(e.target.value));
+    },
+    [category],
+  );
+
+  const onChangeDesc = useCallback(
+    (e: EInput) => {
+      setDesc(e.target.value);
+    },
+    [desc],
+  );
+
+  const onChangeGood = useCallback(
+    (e: EInput) => {
+      setGood(e.target.value);
+    },
+    [good],
+  );
+
+  const onChangeAdd = useCallback(
+    (e: EInput) => {
+      setOption(e.target.value);
+      console.log(option);
+    },
+    [option],
+  );
+
+  const onChooseChange = useCallback(
+    (e: EInput, index: number) => {
+      const newChoose = [...choose];
+      newChoose[index] = e.target.value;
+      setChoose(newChoose);
+      console.log(newChoose);
+      console.log(e);
+    },
+    [choose],
+  );
+
+  const onConfirmUpdateProduct = useCallback(() => {
+    const Lists: any = [];
+    Lists.push({
+      title: title,
+      img: img,
+      price: price,
+      description: desc,
+      category: category,
+      choose: choose,
+    });
+    updateProduct(params, Lists).then(() => {
+      window.location.reload();
+    });
+  }, [title, img, price, desc, category, choose]);
+
+  const onDeleteClick = useCallback(
+    (deloption: string) => {
+      const newChoose = [];
+      for (let i = 0; i < choose.length; i++) {
+        if (choose[i] !== deloption) {
+          newChoose.push(choose[i]);
+        }
+      }
+      setChoose(newChoose);
+      console.log(choose);
+    },
+    [option, choose],
+  );
+
+  const onAddClick = useCallback(() => {
+    const newChoose = [...choose];
+    newChoose.push(option);
+    setChoose(newChoose);
+    console.log(choose);
+  }, [option, choose]);
+
+  const shotptClick = useCallback(() => {
+    console.log(title, price, categoryList[category], good);
+    const shopt: ShoPT = {
+      Product_Name: title,
+      Product_Price: price,
+      Product_Description: categoryList[category],
+      Product_Benefits: good,
+    };
+
+    postGpt(shopt).then((res) => {
+      console.log(res);
+      setShopt(res);
+    });
+  }, [title, price, category, good]);
 
   useEffect(() => {
     console.log(data);
-    setTitle('');
-    setPrice(0);
-    setCategory(0);
-    setChoose([]);
-    setDesc('');
-  }, []);
+  }, [data]);
 
   return (
     <div className='adProductinfo'>
@@ -138,13 +224,13 @@ const AdminAdd = ({
             <div className='chooseBox-divider'></div>
             <div className='chooseBox-add'>
               <input
-                value={newOption}
+                value={option}
                 onChange={(e) => {
-                  onChangeOptions(e);
+                  onChangeAdd(e);
                 }}></input>
               <button
                 onClick={() => {
-                  onAddClick(newOption);
+                  onAddClick();
                 }}>
                 추가
               </button>
@@ -156,17 +242,19 @@ const AdminAdd = ({
                 키워드 입력{' '}
                 <input
                   onChange={(e) => {
-                    onChangeGood();
+                    onChangeGood(e);
                   }}></input>
               </div>
               <button
+                className='shopt'
                 onClick={() => {
-                  shoptClick();
+                  shotptClick();
                 }}>
-                상세페이지 추천 문구 생성하기
+                캐치프레이즈 생성
               </button>
             </div>
           </div>
+          <div>{shopt}</div>
           <button
             className='submit'
             onClick={() => {
@@ -176,6 +264,7 @@ const AdminAdd = ({
           </button>
         </div>
       </div>
+      <div className='adproductinfo-divider'></div>
     </div>
   );
 };
