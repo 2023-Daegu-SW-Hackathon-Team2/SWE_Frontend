@@ -5,7 +5,6 @@ import CartContainer from '@components/Cart/containers/CartContainer';
 import ProductContainer from '@components/Product/containers/ProductContainer';
 import ProductInfoContainer from '@components/ProductInfo/containers/ProductInfoContainer';
 import AdminHomeContainer from '@components/Admin/AdminHome/containers/AdminHomeContainer';
-import AdminGnbContainer from '@components/Admin/AdminGnb/containers/AdminGnbContainer';
 import React, { useEffect, useState } from 'react';
 import {
   BrowserRouter as Router,
@@ -15,6 +14,9 @@ import {
 } from 'react-router-dom';
 import './styles/rootnavigation.style.css';
 import FooterContainer from '@components/Footer/containers/FooterContainer';
+import AdminGnbContainer from '@components/Admin/AdminGnb/containers/AdminGnbContainer';
+import AdminProductInfoContainer from '@components/Admin/AdminProductInfo/containers/AdminProductInfoContainer';
+import AdminProductContainer from '@components/Admin/AdminProduct/containers/AdminProductContainer';
 
 const RootNavigation = () => {
   const location = useLocation();
@@ -25,11 +27,13 @@ const RootNavigation = () => {
       <Routes location={location}>
         <Route path='/' element={<HomeContainer view={''} />} />
         <Route path='/community' element={<ListBoardContainer />} />
-        <Route path='/product/:id' element={<ProductContainer />} />
+        <Route path='/product/:id' element={<ProductContainer view={''}/>} />
         <Route path='/listBoard' element={<ListBoardContainer />} />
         <Route path='/cart' element={<CartContainer />} />
-        <Route path='/productinfo/:id' element={<ProductInfoContainer />} />
-        <Route path='/admin/' element={<AdminHomeContainer />} />
+        <Route path='/productinfo/:id' element={<ProductInfoContainer view={''} />} />
+        <Route path='/admin/home' element={<AdminHomeContainer />} />
+        <Route path='/admin/product/:id' element={<AdminProductContainer />}/>
+        <Route path='/admin/productinfo/:id' element={<AdminProductInfoContainer />} />
       </Routes>
       <FooterContainer location={location.pathname} />
     </>

@@ -6,9 +6,7 @@ type Props = {};
 const AdminHome = (props: Props) => {
   return (
     <div className='adhome'>
-      <div className='adhome-preview'>
-        <HomeContainer view={'-admin'} />
-      </div>
+      <HomeContainer view={'-admin'} />
     </div>
   );
 };

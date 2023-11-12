@@ -28,3 +28,13 @@
     row-gap: 75px;
   }
 }
+
+.product-admin{
+  @extend .product;
+  padding-top: 0px;
+  margin: 20px;
+  transform: scale(0.5);
+  -webkit-transform-origin-x: right;
+  -webkit-transform-origin-y: top;
+  height: 100vh;
+}

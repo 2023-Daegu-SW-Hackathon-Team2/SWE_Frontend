@@ -6,11 +6,12 @@ import './styles/product.styles.css';
 type Props = {
   itemList: HomeItem[];
   productType: string;
+  view:string;
 };
 
-const Product = ({ itemList, productType }: Props) => {
+const Product = ({ itemList, productType, view }: Props) => {
   return (
-    <div className='product'>
+    <div className={`product${view}`}>
       <div className='product-header'>{productType}</div>
       <div className='product-body'>
         {itemList.map((item, index) => (

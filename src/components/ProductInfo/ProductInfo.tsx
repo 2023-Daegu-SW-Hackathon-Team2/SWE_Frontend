@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles/productinfo.styles.css';
 import images from 'src/assets/images';
-import { ItemInfo, VoidFunc, SelectedItem, BagPost } from '@typedef/types';
+import { ItemInfo, VoidFunc, SelectedItem, BagPost, ViewType } from '@typedef/types';
 type Props = {
   productInfo: ItemInfo;
   dropbox: boolean;
@@ -13,6 +13,7 @@ type Props = {
   onDeleteClick: (index: number) => void;
   totalQuantity: number;
   onBagClick: VoidFunc;
+  view: string;
 };
 
 const ProductInfo = ({
@@ -26,17 +27,20 @@ const ProductInfo = ({
   onDeleteClick,
   totalQuantity,
   onBagClick,
+  view
 }: Props) => {
   return (
-    <div className='pInfo'>
+    <div className={`pInfo${view}`}>
       <div className='pInfo-info'>
-        <img
-          src={
-            !productInfo.img || productInfo.img.length === 0
-              ? images.logo_orca_b
-              : productInfo.img[0]
-          }
-        />
+        <div className='pInfo-info-img'>
+          <img
+            src={
+              !productInfo.img || productInfo.img.length === 0
+                ? images.logo_orca_b
+                : productInfo.img[0]
+            }
+          />
+        </div>
         <div className='pInfo-info-text'>
           <div className='pInfo-info-text-name'>{productInfo.title}</div>
           <div className='pInfo-info-text-price'>

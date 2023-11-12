@@ -1,0 +1,121 @@
+.adproduct {
+  width: 100%;
+  padding-left: 120px;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.adproduct-divider {
+  margin-left: 0px;
+  height: 100%;
+  width: 1px;
+  left: 1000px;
+  position: absolute;
+  background-color: black;
+}
+.adproduct-tab {
+  display: flex;
+  width: 850px;
+  text-align: center;
+  position: absolute;
+  margin: 15px;
+  top: 10px;
+  flex-direction: column;
+}
+.adproduct-tab-nav {
+  display: flex;
+}
+.adproduct-tab-button {
+  display: flex;
+  width: 170px;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  border: solid 1px #000000;
+}
+
+.list-board {
+  display: flex;
+  width: 850px;
+  height: 100vh;
+  padding-top: 20px;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+}
+.list-board .list-title {
+  width: 100%;
+  font-size: 36px;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 50px;
+}
+.list-board .list-container {
+  width: 100%;
+  height: 70%;
+  margin-top: 50px;
+}
+.list-board .list-head {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  background-color: black;
+  padding-right: 20px;
+  color: white;
+  height: 40px;
+  align-items: center;
+}
+.list-board .list-head-num {
+  flex: 1;
+}
+.list-board .list-head-title {
+  flex: 3;
+}
+.list-board .list-head-image {
+  flex: 1;
+}
+.list-board .list-head-image img {
+  height: 60px;
+}
+.list-board .list-head-del {
+  flex: 1;
+}
+.list-board .list-head-del img {
+  height: 60px;
+}
+.list-board .list-item {
+  display: flex;
+  flex-direction: column;
+  height: 85%;
+  overflow-y: scroll;
+}
+.list-board .list-row {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  height: 60px;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.list-board .list-row-num {
+  flex: 1;
+}
+.list-board .list-row-title {
+  flex: 3;
+}
+.list-board .list-row-image {
+  flex: 1;
+}
+.list-board .list-row-image img {
+  height: 60px;
+}
+.list-board .list-row-del {
+  flex: 1;
+}
+.list-board .list-row-del img {
+  height: 15px;
+}/*# sourceMappingURL=adminproduct.styles.css.map */

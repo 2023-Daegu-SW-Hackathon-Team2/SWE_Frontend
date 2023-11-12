@@ -17,11 +17,11 @@ const AdminGnbContainer = ({ location }: Props) => {
     },
     {
       label: 'Home',
-      path: '/admin',
+      path: '/admin/home',
     },
     {
       label: 'Products',
-      path: '/admin/product',
+      path: '/admin/product/0',
     },
     {
       label: 'Add',

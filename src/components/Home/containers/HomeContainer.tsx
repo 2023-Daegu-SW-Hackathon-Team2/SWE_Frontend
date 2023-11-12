@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Home from '../Home';
 import images from 'src/assets/images';
-import { HomeItem } from '@typedef/types';
+import { HomeItem, ViewType } from '@typedef/types';
 import { getBannerImg } from 'src/api/HomeAPI';
 import { getProductInfo } from 'src/api/ProductAPI';
-type Props = {
-  view: string;
-};
 
-const HomeContainer = ({ view }: Props) => {
+
+const HomeContainer = ({ view }: ViewType) => {
   const title1 = '신상품';
   const title2 = '베스트';
 

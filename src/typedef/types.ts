@@ -69,3 +69,7 @@ export type BagPost = {
   created_user_id: string;
   choose: string;
 };
+
+export type ViewType = {
+  view: string;
+};

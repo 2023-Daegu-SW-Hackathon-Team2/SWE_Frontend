@@ -3,13 +3,12 @@ import ProductInfo from '../ProductInfo';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { getProductInfo } from 'src/api/ProductAPI';
-import { ItemInfo } from '@typedef/types';
+import { ItemInfo, ViewType } from '@typedef/types';
 import images from 'src/assets/images';
 import { SelectedItem, BagPost } from '@typedef/types';
 import { postBagList } from 'src/api/CartAPI';
-type Props = {};
 
-const ProductInfoContainer = (props: Props) => {
+const ProductInfoContainer = ({view}: ViewType) => {
   const params: any = useParams().id;
   const [dropbox, setDropbox] = useState(false);
   const [bagList, setBagList] = useState<BagPost[]>([]);
@@ -139,6 +138,7 @@ const ProductInfoContainer = (props: Props) => {
       onDeleteClick={onDeleteClick}
       totalQuantity={totalQuantity}
       onBagClick={onBagClick}
+      view={view}
     />
   );
 };

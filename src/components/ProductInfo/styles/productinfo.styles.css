@@ -1,4 +1,4 @@
-.pInfo {
+.pInfo, .pInfo-admin {
   width: 100vw;
   padding-top: 180px;
   height: -moz-fit-content;
@@ -16,8 +16,14 @@
   flex-direction: row;
   align-items: start;
 }
-.pInfo-info img {
+.pInfo-info-img {
+  display: flex;
   width: 660px;
+  justify-content: center;
+  overflow: hidden;
+}
+.pInfo-info-img img {
+  height: 660px;
 }
 .pInfo-info-text {
   width: 560px;
@@ -252,4 +258,13 @@
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+}
+
+.pInfo-admin {
+  padding-top: 0px;
+  margin: 20px;
+  transform: scale(0.5);
+  -webkit-transform-origin-x: right;
+  -webkit-transform-origin-y: top;
+  height: 100vh;
 }/*# sourceMappingURL=productinfo.styles.css.map */
