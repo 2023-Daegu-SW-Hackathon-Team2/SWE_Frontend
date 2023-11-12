@@ -1,0 +1,159 @@
+.adproductinfo {
+  transform: scale(2, 1);
+  width: 100%;
+  padding-left: 120px;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.adproductinfo .Box, .adproductinfo .Box-banner {
+  width: 100%;
+  border: solid 1px black;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+.adproductinfo .Box-banner {
+  display: grid;
+  grid-template-areas: "input button" "div button";
+}
+.adproductinfo .Box-banner input {
+  grid-area: input;
+  margin-bottom: 10px;
+}
+.adproductinfo .Box-banner div {
+  grid-area: div;
+}
+.adproductinfo .Box-banner button {
+  width: 150px;
+  justify-self: end;
+  grid-area: button;
+  border-radius: 10px;
+}
+.adproductinfo-divider {
+  margin-left: 0px;
+  height: 100%;
+  width: 1px;
+  left: 1000px;
+  position: absolute;
+  background-color: black;
+}
+.adproductinfo-tab {
+  position: absolute;
+  left: 180px;
+  width: 750px;
+  height: 100%;
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.adproductinfo-tab-banner {
+  width: 100%;
+}
+.adproductinfo-tab-input {
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+.adproductinfo-tab-input .flex {
+  display: flex;
+  gap: 20px;
+}
+.adproductinfo-tab-input .input {
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.adproductinfo-tab-input .input .title {
+  width: 100%;
+}
+.adproductinfo-tab-input .input input {
+  width: 100%;
+  height: 30px;
+  padding-left: 10px;
+  border: 1px solid black;
+}
+.adproductinfo-tab-input button {
+  width: 150px;
+  height: 50px;
+  justify-self: end;
+  grid-area: button;
+  border-radius: 10px;
+}
+.adproductinfo .chooseBox {
+  display: grid;
+  grid-template-areas: " 1fr 1fr";
+  gap: 20px;
+}
+.adproductinfo .chooseBox-box {
+  padding: 10px;
+  gap: 10px;
+  border: 1px solid black;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 50px;
+}
+.adproductinfo .chooseBox-box input {
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  width: 75%;
+}
+.adproductinfo .chooseBox button {
+  width: 80px;
+  height: 30px;
+  border-radius: 5px;
+}
+.adproductinfo .chooseBox-add {
+  width: 50%;
+  height: 50px;
+  margin-top: 40px;
+  margin-left: 485px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+.adproductinfo .chooseBox-add input {
+  width: 50%;
+  border: 1px solid black;
+  padding: 0 10px;
+  height: 50px;
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+}
+.adproductinfo .chooseBox-add button {
+  width: 50px;
+  height: 50px;
+}
+.adproductinfo .shoptBox, .adproductinfo .shoptBox-keyword {
+  display: flex;
+  justify-content: space-between;
+}
+.adproductinfo .shoptBox-keyword {
+  padding-left: 10px;
+  border: 1px solid black;
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 50px;
+}
+.adproductinfo .shoptBox-keyword input {
+  width: 300px;
+  padding-left: 10px;
+  height: 30px;
+}
+.adproductinfo .submit {
+  float: right;
+}/*# sourceMappingURL=adminadd.styles.css.map */
