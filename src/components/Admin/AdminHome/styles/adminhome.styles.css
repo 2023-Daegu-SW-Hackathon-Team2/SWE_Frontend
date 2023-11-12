@@ -12,15 +12,14 @@
   margin-left: 0px;
   height: 100%;
   width: 1px;
-  left: 1000px;
+  left: 890px;
   position: absolute;
   background-color: black;
 }
 .adhome-tab {
   position: absolute;
   left: 140px;
-  width: 850px;
-  height: 100%;
+  width: 750px;
   padding-top: 100px;
   padding-bottom: 100px;
   padding-right: 20px;

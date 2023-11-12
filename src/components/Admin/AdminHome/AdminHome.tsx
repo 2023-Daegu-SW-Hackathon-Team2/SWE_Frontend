@@ -41,6 +41,7 @@ const AdminHome = ({
           <div className='newbox'>
             {homeNewList.map((homenew: any, index: number) => (
               <input
+              key={index}
                 value={homenew}
                 onChange={(e) => {
                   onChangeNew(e, index);
@@ -50,6 +51,7 @@ const AdminHome = ({
           <div className='bestbox'>
             {homeBestList.map((homebest: any, index: number) => (
               <input
+              key={index}
                 value={homebest}
                 onChange={(e) => {
                   onChangeBest(e, index);
@@ -59,8 +61,8 @@ const AdminHome = ({
           <button onClick={onConfirmNewBest}>업로드</button>
         </div>
         <div className='adhome-tab-table'>
-          {dataList.map((data: any) => (
-            <div className='tablebox'>
+          {dataList.map((data: any, index:number) => (
+            <div key={index} className='tablebox'>
               <div className='tablebox-title'> {data.title}</div>
               <div className='tablebox-id'> {data.id}</div>
             </div>

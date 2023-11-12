@@ -1,6 +1,6 @@
-export async function getProductInfo(cart_id) {
+export async function getProductInfo(product_id) {
   const baseUrl = 'http://localhost:8000'; // NestJS 서버의 URL과 포트 번호
-  return fetch(`${baseUrl}/products/${cart_id}`, {
+  return fetch(`${baseUrl}/products/${product_id}`, {
     method: 'GET',
   })
     .then((res) => res.json())
@@ -51,4 +51,34 @@ export async function deleteProduct(id){
     .then((data) => {
       return data;
     })
+}
+
+export async function updateProduct(id,Lists){
+  const baseUrl = 'http://localhost:8000';
+  return fetch(`${baseUrl}/products/${id}`,{
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(Lists[0]),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      return data;
+    })
+}
+
+export async function uploadImage(files) {
+  const formData = new FormData();
+  files.forEach((file) => {
+    formData.append('files', file);
+  });
+
+  const baseUrl = 'http://localhost:8000'; // NestJS 서버의 URL과 포트 번호
+  return fetch(`${baseUrl}/products/upload/`, {
+    method: 'POST',
+    body: formData,
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      return data
+    });
 }
