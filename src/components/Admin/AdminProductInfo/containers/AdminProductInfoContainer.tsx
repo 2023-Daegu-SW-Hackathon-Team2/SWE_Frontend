@@ -23,14 +23,12 @@ const AdminProductInfoContainer = (props: Props) => {
     const [choose, setChoose] = useState<string[]>([]);
     const [desc, setDesc] = useState<string>("");
     const [good, setGood] = useState<string>("");
+    const [option, setOption] = useState<string>("");
     const params: any = useParams().id;
     const categoryList = ["bottom", "top", "outer", "shoes", "acc"];
     const [shopt, setShopt] = useState<string[]>([]);
 
     useEffect(() => {
-        setTimeout(()=>{
-            
-        })
         getProductInfo(parseInt(params)).then((data) => {
           console.log(data);
           setDatas(data);
@@ -79,6 +77,23 @@ const AdminProductInfoContainer = (props: Props) => {
         [good]
     );
 
+    const onChangeOptions = useCallback(
+        (e: EInput) => {
+            setOption(e.target.value);
+            console.log(option)
+        },
+        [option]
+    );
+
+    const onChooseChange = useCallback(
+        (e: EInput, index: number) => {
+            const newChoose = [...choose]
+            newChoose[index]= e.target.value;
+            setChoose(newChoose);
+        },
+        [choose]
+    );
+
     const shotptClick = useCallback(() => {
         console.log(title, price, categoryList[category], good);
         const shopt: ShoPT = {
@@ -102,7 +117,7 @@ const AdminProductInfoContainer = (props: Props) => {
             price: price,
             description: desc,
             category: category,
-            choose: null,
+            choose: choose,
         });
         updateProduct(params, Lists).then(() => {
             window.location.reload();
@@ -122,18 +137,25 @@ const AdminProductInfoContainer = (props: Props) => {
         });
     }, [files]);
 
-    const onUpdateClick = useCallback(
-        (index: number) => {
-        //   putGnbCategory(categories[index]);
-          alert('수정되었습니다.');
-        },
-        [],
-    );
+    const onDeleteClick = useCallback((deloption: string) => {
+        const newChoose = [];
+        for(let i=0; i<choose.length; i++){
+            if(choose[i] !== deloption){
+                newChoose.push(choose[i])
+            }
+        }
+        setChoose(newChoose)
+        console.log(choose)
+    }, [option, choose]);
 
-    const onDeleteClick = useCallback((id: number) => {
-        deleteGnbCategory(id);
-        window.location.reload();
-    }, []);
+    const onAddClick = useCallback(() => {
+        const newChoose = [...choose]
+        newChoose.push(option)
+        setChoose(newChoose)
+        console.log(choose)
+    }, [option, choose]);
+
+    
 
     return (
         <div>
@@ -149,6 +171,11 @@ const AdminProductInfoContainer = (props: Props) => {
             onChangeGood={onChangeGood}
             shoptClick = {shotptClick}
             data={datas}
+            onDeleteClick={onDeleteClick}
+            onAddClick={onAddClick}
+            onChangeOptions={onChangeOptions}
+            newOption={option}
+            onChooseChange={onChooseChange}
             /> : <div>Loading</div> }
         </div>
     );
