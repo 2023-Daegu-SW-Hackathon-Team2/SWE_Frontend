@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './styles/adminproductinfo.styles.css';
 import ProductInfoContainer from '@components/ProductInfo/containers/ProductInfoContainer';
 type Props = {
@@ -13,6 +13,11 @@ type Props = {
   onChangeGood:any;
   shoptClick:any;
   data:any;
+  onDeleteClick:any;
+  onAddClick:any;
+  onChangeOptions:any;
+  newOption:any;
+  onChooseChange:any;
 };
 
 const AdminProductInfo = ({
@@ -26,10 +31,30 @@ const AdminProductInfo = ({
   onConfirmUpdateProduct,
   onChangeGood,
   shoptClick,
-  data
+  data,
+  onDeleteClick,
+  onAddClick,
+  onChangeOptions,
+  newOption,
+  onChooseChange
 }: Props) => {
+    const [title, setTitle] = useState<string>("");
+    const [price, setPrice] = useState<number>(0);
+    const [category, setCategory] = useState<number>(0);
+    const [choose, setChoose] = useState<string[]>([]);
+    const [desc, setDesc] = useState<string>("");
     const categoryList = ["bottom", "top", "outer", "shoes", "acc"];
     console.log(data);
+
+    useEffect(() => {
+          console.log(data);
+          setTitle(data[0].title);
+          setPrice(data[0].price);
+          setCategory(data[0].category);
+          setChoose(data[0].choose);
+          setDesc(data[0].description);
+      }, []);
+
   return (
     <div className='adproductinfo'>
       <div className='adproductinfo-tab'>
@@ -49,36 +74,36 @@ const AdminProductInfo = ({
             <div className='Box'>
             <div className='input'>
                 <div>상품명</div>
-                <input className="title" type="text" value={data.title} onChange={(e) => {onChangeTitle(e);}} />
+                <input className="title" type="text" value={title} onChange={(e) => {onChangeTitle(e);}} />
             </div>
             <div className='flex'>
                 <div className='input'>
                     <div>가격</div>
-                    <input type="text" value={data.price} onChange={(e) => {onChangePrice(e);}} />
+                    <input type="text" value={price} onChange={(e) => {onChangePrice(e);}} />
                 </div>
                 <div className='input'>
                     <div>카테고리</div>
-                    <input type="text" value={categoryList[data.category]}  onChange={(e) => {onChangeCategory(e);}} />
+                    <input type="text" value={categoryList[category]}  onChange={(e) => {onChangeCategory(e);}} />
                 </div>
             </div>
             <div className='input'>
                     <div>상세설명</div>
-                    <input className="title" value={data.description} type="text" onChange={(e) => {onChangeDesc(e);}} />
+                    <input className="title" value={desc} type="text" onChange={(e) => {onChangeDesc(e);}} />
                 </div>
             </div>
             <div className='Box'>
                 <div className='chooseBox'>
-                    {data.choose.map((choose:any, index:number) => (
+                    {choose.map((choose:any, index:number) => (
                         <div key={index} className='chooseBox-box'>
-                        <input value={choose}></input>
-                        <button>수정</button><button>삭제</button>
+                        <input value={choose} onChange={(e)=>{onChooseChange(e,index)}}></input>
+                        <button onClick={() => {onDeleteClick(choose);}}>삭제</button>
                     </div>
                     ))}
                 </div>
                 <div className='chooseBox-divider'></div>
                 <div className='chooseBox-add'>
-                    <input></input>
-                    <button>추가</button>
+                    <input value={newOption} onChange={(e)=>{onChangeOptions(e);}}></input>
+                    <button onClick={()=>{onAddClick(newOption)}}>추가</button>
                 </div>
             </div>
             <div className='Box'>
@@ -89,7 +114,7 @@ const AdminProductInfo = ({
                     <button onClick={() => {shoptClick();}}>상세페이지 추천 문구 생성하기</button>
                 </div>
             </div>
-            <button className='submit' onClick={onConfirmUpdateProduct}>상품 정보 수정하기</button>
+            <button className='submit' onClick={()=>{onConfirmUpdateProduct()}}>상품 정보 수정하기</button>
         </div>
       </div>
       <div className='adproductinfo-divider'></div>
