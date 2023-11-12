@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { getBannerImg } from 'src/api/HomeAPI';
 import Gnb from '../Gnb';
 import { GNBTableTypes } from '@typedef/types';
 import { useNavigate } from 'react-router-dom';
@@ -10,6 +11,7 @@ type Props = {
 const GnbContainer = ({ location }: Props) => {
   const navigate = useNavigate();
   const [dropBox, setDropBox] = useState(false);
+  const [logo, setLogo] = useState('');
   const [dropBoxList, setDropBoxList] = useState<GNBTableTypes[]>([]);
   const onDropBoxClick = useCallback(() => {
     setDropBox((prev) => !prev);
@@ -17,12 +19,19 @@ const GnbContainer = ({ location }: Props) => {
 
   useEffect(() => {
     getCategory(7).then((data) => {
-      const newItemList = data.map((item:any) => ({
-        label:item.category_name,
-        path: `/product/${item.id}`
+      const newItemList = data.map((item: any) => ({
+        label: item.category_name,
+        path: `/product/${item.id}`,
       }));
       setDropBoxList(newItemList);
     });
+  }, []);
+  useEffect(() => {
+    getBannerImg(6).then((data) => {
+      setLogo(data[0].logo);
+    });
+
+    return () => {};
   }, []);
 
   const tabTable: GNBTableTypes[] = [
@@ -81,6 +90,7 @@ const GnbContainer = ({ location }: Props) => {
       dropBoxList={dropBoxList}
       dropBox={dropBox}
       onDropBoxClick={onDropBoxClick}
+      logo={logo}
     />
   ) : (
     <></>
