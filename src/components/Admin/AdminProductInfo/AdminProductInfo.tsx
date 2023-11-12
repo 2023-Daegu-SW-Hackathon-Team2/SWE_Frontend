@@ -253,10 +253,11 @@ const AdminProductInfo = ({
                   }}></input>
               </div>
               <button
+                className='shopt'
                 onClick={() => {
                   shotptClick();
                 }}>
-                상세페이지 추천 문구 생성하기
+                캐치프레이즈 생성
               </button>
             </div>
           </div>
