@@ -33,6 +33,11 @@ const GnbContainer = ({ location }: Props) => {
 
     return () => {};
   }, []);
+  useEffect(() => {
+    setDropBox(false);
+
+    return () => {};
+  }, [location]);
 
   const tabTable: GNBTableTypes[] = [
     {
@@ -91,6 +96,7 @@ const GnbContainer = ({ location }: Props) => {
       dropBox={dropBox}
       onDropBoxClick={onDropBoxClick}
       logo={logo}
+      location={location}
     />
   ) : (
     <></>

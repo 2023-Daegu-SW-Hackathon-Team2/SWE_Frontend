@@ -9,6 +9,7 @@ type Props = {
   dropBox: boolean;
   onDropBoxClick: () => void;
   logo: string;
+  location: string;
 };
 
 const Gnb = ({
@@ -18,6 +19,7 @@ const Gnb = ({
   dropBoxList,
   onDropBoxClick,
   logo,
+  location,
 }: Props) => {
   return (
     <div className='gnb'>
@@ -35,7 +37,7 @@ const Gnb = ({
             if (index == 1) {
               return (
                 <div
-                  className='tab'
+                  className={location === tab.path ? 'tab-active' : 'tab'}
                   key={index}
                   onClick={() => {
                     onTabClick(tab.path);
@@ -46,7 +48,7 @@ const Gnb = ({
             } else if (index == 0) {
               return (
                 <div
-                  className='tab'
+                  className={location.includes(tab.path) ? 'tab-active' : 'tab'}
                   key={index}
                   onClick={() => {
                     onDropBoxClick();
@@ -76,7 +78,7 @@ const Gnb = ({
             if (index > 1) {
               return (
                 <div
-                  className='tab'
+                  className={location === tab.path ? 'tab-active' : 'tab'}
                   key={index}
                   onClick={() => {
                     onTabClick(tab.path);
