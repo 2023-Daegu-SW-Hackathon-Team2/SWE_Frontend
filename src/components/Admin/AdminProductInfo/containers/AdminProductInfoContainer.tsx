@@ -3,19 +3,19 @@ import AdminProductInfo from "../AdminProductInfo";
 import { EFile, EInput, ItemInfo, ShoPT } from "@typedef/types";
 import { getBannerImg, postBanner, postNewBest } from "src/api/HomeAPI";
 import {
-    getAllData,
     getProductInfo,
     updateProduct,
     uploadImage,
 } from "src/api/ProductAPI";
 import { useParams } from "react-router-dom";
 import { postGpt } from "src/api/ShoPTAPI";
+import { deleteGnbCategory, putGnbCategory } from "src/api/GnbAPI";
 type Props = {};
 
 const AdminProductInfoContainer = (props: Props) => {
     const [files, setFiles] = useState<File[]>([]);
     const [fileNames, setFileNames] = useState<string[]>([]);
-    const [data, setData] = useState<ItemInfo>();
+    const [datas, setDatas] = useState<ItemInfo>();
     const [title, setTitle] = useState<string>("");
     const [img, setImg] = useState<string>("");
     const [price, setPrice] = useState<number>(0);
@@ -24,20 +24,24 @@ const AdminProductInfoContainer = (props: Props) => {
     const [desc, setDesc] = useState<string>("");
     const [good, setGood] = useState<string>("");
     const params: any = useParams().id;
-    const categoryList = ["top", "bottom", "outer", "shoes", "acc"];
+    const categoryList = ["bottom", "top", "outer", "shoes", "acc"];
     const [shopt, setShopt] = useState<string[]>([]);
 
     useEffect(() => {
-        getProductInfo(params).then((data) => {
-            setData(data[0]);
-            setTitle(data[0].title);
-            setImg(data[0].img);
-            setPrice(data[0].price);
-            setCategory(data[0].category);
-            setChoose(data[0].choose);
-            setDesc(data[0].description);
+        setTimeout(()=>{
+            
+        })
+        getProductInfo(parseInt(params)).then((data) => {
+          console.log(data);
+          setDatas(data);
+          setTitle(data[0].title);
+          setImg(data[0].img);
+          setPrice(data[0].price);
+          setCategory(data[0].category);
+          setChoose(data[0].choose);
+          setDesc(data[0].description);
         });
-    }, []);
+      }, []);
 
     const onChangeTitle = useCallback(
         (e: EInput) => {
@@ -61,7 +65,14 @@ const AdminProductInfoContainer = (props: Props) => {
         [category]
     );
 
-    const onChangeChoose = useCallback(
+    const onChangeDesc = useCallback(
+        (e: EInput) => {
+            setDesc(e.target.value);
+        },
+        [desc]
+    );
+
+    const onChangeGood = useCallback(
         (e: EInput) => {
             setGood(e.target.value);
         },
@@ -81,7 +92,7 @@ const AdminProductInfoContainer = (props: Props) => {
             console.log(res);
             setShopt(res);
         });
-    }, []);
+    }, [title, price, category, good]);
 
     const onConfirmUpdateProduct = useCallback(() => {
         const Lists: any = [];
@@ -110,39 +121,36 @@ const AdminProductInfoContainer = (props: Props) => {
             setImg(res);
         });
     }, [files]);
-    // useEffect(() => {
-    //   const fetchData = async () => {
-    //     const totalData: any = [];
-    //     const data = await getAllData();
-    //     for (let i = 0; i < data.length; i++) {
-    //       totalData.push({
-    //         title: data[i].title,
-    //         id: data[i].id,
-    //       });
-    //     }
 
-    //     setDataList(totalData);
-    //     console.log(totalData);
-    //   };
+    const onUpdateClick = useCallback(
+        (index: number) => {
+        //   putGnbCategory(categories[index]);
+          alert('수정되었습니다.');
+        },
+        [],
+    );
 
-    //   fetchData();
+    const onDeleteClick = useCallback((id: number) => {
+        deleteGnbCategory(id);
+        window.location.reload();
+    }, []);
 
-    //   return () => {};
-    // }, []);
     return (
-        <AdminProductInfo
+        <div>
+            {datas ? <AdminProductInfo
             handleFileChange={handleFileChange}
             fileNames={fileNames}
             onUploadClick={onUploadClick}
-            data={data}
             onChangeTitle={onChangeTitle}
             onChangePrice={onChangePrice}
             onChangeCategory={onChangeCategory}
-            onChangeChoose={onChangeChoose}
+            onChangeDesc={onChangeDesc}
             onConfirmUpdateProduct={onConfirmUpdateProduct}
-            shotptClick={shotptClick}
-            shopt={shopt}
-        />
+            onChangeGood={onChangeGood}
+            shoptClick = {shotptClick}
+            data={datas}
+            /> : <div>Loading</div> }
+        </div>
     );
 };
 

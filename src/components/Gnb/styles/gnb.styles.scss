@@ -58,6 +58,7 @@
         font-style: normal;
         font-weight: 400;
         line-height: normal;
+        transition: text-decoration 0.3s ease-in-out;
         img {
           width: 16px;
         }
@@ -97,16 +98,26 @@
             visibility: visible;
           }
         }
+
         img {
           margin-left: 8px;
         }
         &:hover {
           cursor: pointer;
+          text-decoration: underline;
+          transition: 0.25s;
         }
+        &-active {
+        }
+      }
+      .tab-active {
+        @extend .tab;
+        text-decoration: underline;
       }
     }
     &-s2 {
       @extend .gnb-nav-s1;
+
       left: auto;
       right: 40px;
     }
