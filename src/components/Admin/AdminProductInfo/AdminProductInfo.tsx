@@ -97,6 +97,7 @@ const AdminProductInfo = ({
     });
     updateProduct(params, Lists).then(() => {
       window.location.reload();
+      alert("상품 수정 완료!");
     });
   }, [title, img, price, desc, category, choose]);
 
@@ -146,6 +147,8 @@ const AdminProductInfo = ({
   const onUploadClick = useCallback(() => {
     uploadImage(files).then((res) => {
       setImg(res);
+    }).then(()=>{
+        alert("이미지 업로드 완료!");
     });
   }, [files]);
 

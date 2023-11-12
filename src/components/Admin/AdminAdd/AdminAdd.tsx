@@ -93,6 +93,8 @@ const AdminAdd = ({
   const onUploadClick = useCallback(() => {
     uploadImage(files).then((res) => {
       setImg(res);
+    }).then(()=>{
+        alert("이미지 업로드 완료!");
     });
   }, [files]);
 
@@ -109,6 +111,7 @@ const AdminAdd = ({
     });
     console.log(Lists);
     addProduct(Lists).then(() => {
+        alert("상품 등록 완료!");
       window.location.reload();
     });
   }, [title, img, price, desc, category, choose]);
@@ -159,7 +162,7 @@ const AdminAdd = ({
         <div className='adproductinfo-tab-banner'>
           <div className='Box-banner'>
             <input type='file' multiple onChange={handleFileChange} />
-            <div>선택된 파일: {fileNames.join(', ')}<br/>{img}</div>
+            <div>선택된 파일: {fileNames.join(', ')}</div>
             <button
               onClick={() => {
                 onUploadClick();
