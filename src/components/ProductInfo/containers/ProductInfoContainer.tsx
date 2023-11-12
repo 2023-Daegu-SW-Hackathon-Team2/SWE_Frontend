@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import ProductInfo from '../ProductInfo';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { getProductInfo } from 'src/api/ProductAPI';
 import { ItemInfo, ViewType } from '@typedef/types';
@@ -8,7 +8,8 @@ import images from 'src/assets/images';
 import { SelectedItem, BagPost } from '@typedef/types';
 import { postBagList } from 'src/api/CartAPI';
 
-const ProductInfoContainer = ({view}: ViewType) => {
+const ProductInfoContainer = ({ view }: ViewType) => {
+  const navigate = useNavigate();
   const params: any = useParams().id;
   const [dropbox, setDropbox] = useState(false);
   const [bagList, setBagList] = useState<BagPost[]>([]);
@@ -96,10 +97,11 @@ const ProductInfoContainer = ({view}: ViewType) => {
 
   //   return () => {};
   // }, []);
-  const onBagClick = useCallback(() => {
+  const onBagClick = useCallback(async () => {
     for (let i = 0; i < bagList.length; i++) {
-      postBagList(bagList[i]);
+      await postBagList(bagList[i]);
     }
+    navigate('/cart');
   }, [bagList]);
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-.adproduct{
+.adproduct {
   width: 100%;
   padding-left: 120px;
   height: fit-content;
@@ -15,7 +15,7 @@
     background-color: black;
   }
 
-  &-tab{
+  &-tab {
     display: flex;
     width: 850px;
     text-align: center;
@@ -24,14 +24,16 @@
     top: 10px;
     flex-direction: column;
 
-    &-nav{
+    &-nav {
       display: flex;
     }
 
-    &-button{
+    &-button {
       display: flex;
-      width: 170px;
+      width: 150px;
       height: 50px;
+      margin-left: 12.5px;
+      margin-right: 12.5px;
       align-items: center;
       justify-content: center;
       border: solid 1px #000000;
@@ -39,8 +41,7 @@
   }
 }
 
-
-.list-board {
+.list-Board {
   display: flex;
   width: 850px;
   height: 100vh;
@@ -48,7 +49,7 @@
   flex-direction: column;
   position: relative;
   align-items: center;
-  
+
   .list-title {
     width: 100%;
     font-size: 36px;
@@ -56,12 +57,12 @@
     text-align: left;
     margin-top: 50px;
   }
-  .list-container{
+  .list-container {
     width: 100%;
     height: 70%;
     margin-top: 50px;
   }
-  .list-head{
+  .list-head {
     display: flex;
     flex-direction: row;
     text-align: center;
@@ -70,33 +71,33 @@
     color: white;
     height: 40px;
     align-items: center;
-    &-num{
+    &-num {
       flex: 1;
     }
-    &-title{
+    &-title {
       flex: 3;
     }
-    &-image{
+    &-image {
       flex: 1;
-      img{
-        height: 60px;
+      img {
+        height: 55px;
       }
     }
-    &-del{
+    &-del {
       flex: 1;
-      img{
-        height: 60px;
+      img {
+        height: 55px;
       }
     }
   }
 
-  .list-item{
+  .list-item {
     display: flex;
     flex-direction: column;
     height: 85%;
     overflow-y: scroll;
   }
-  .list-row{
+  .list-row {
     display: flex;
     flex-direction: row;
     text-align: center;
@@ -105,22 +106,23 @@
     border-bottom: 1px solid lightgray;
     flex-shrink: 0;
     cursor: pointer;
-    &-num{
+    &-num {
       flex: 1;
     }
-    &-title{
+    &-title {
       flex: 3;
     }
-    &-image{
+    &-image {
       flex: 1;
-      img{
-        height: 60px;
+      img {
+        height: 50px;
+        margin-top: 5px;
       }
     }
-    &-del{
+    &-del {
       flex: 1;
-      img{
-        height: 15px;
+      img {
+        height: 10px;
       }
     }
   }

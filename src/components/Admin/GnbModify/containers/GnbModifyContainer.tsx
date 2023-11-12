@@ -66,6 +66,7 @@ const GnbModifyContainer = (props: Props) => {
   const onUpdateClick = useCallback(
     (index: number) => {
       putGnbCategory(categories[index]);
+      alert('수정되었습니다.');
     },
     [categories],
   );

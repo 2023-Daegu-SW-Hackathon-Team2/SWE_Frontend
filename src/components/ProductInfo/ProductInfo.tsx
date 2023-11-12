@@ -1,7 +1,13 @@
 import React from 'react';
 import './styles/productinfo.styles.css';
 import images from 'src/assets/images';
-import { ItemInfo, VoidFunc, SelectedItem, BagPost, ViewType } from '@typedef/types';
+import {
+  ItemInfo,
+  VoidFunc,
+  SelectedItem,
+  BagPost,
+  ViewType,
+} from '@typedef/types';
 type Props = {
   productInfo: ItemInfo;
   dropbox: boolean;
@@ -27,7 +33,7 @@ const ProductInfo = ({
   onDeleteClick,
   totalQuantity,
   onBagClick,
-  view
+  view,
 }: Props) => {
   return (
     <div className={`pInfo${view}`}>

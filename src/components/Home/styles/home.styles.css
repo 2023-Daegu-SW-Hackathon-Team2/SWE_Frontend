@@ -1,5 +1,5 @@
 .home, .home-admin {
-  width: 100%;
+  width: 99%;
   padding-top: 180px;
   height: -moz-fit-content;
   height: fit-content;
@@ -9,13 +9,12 @@
 }
 .home-banner {
   display: flex;
-  margin-top: 30px;
+  margin-top: 80px;
   box-sizing: border-box;
   width: 100%;
   height: 550px;
   border-style: solid;
   border-color: #000000;
-  border-width: 1px 0px 1px 0px;
   position: relative;
   justify-content: center;
 }
@@ -89,7 +88,7 @@
 }
 .home-admin {
   padding-top: 0px;
-  margin-left: 20px;
+  margin-left: -180px;
   transform: scale(0.45);
   -webkit-transform-origin-x: right;
   -webkit-transform-origin-y: top;
