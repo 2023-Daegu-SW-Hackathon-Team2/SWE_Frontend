@@ -90,6 +90,8 @@ const AdminProductInfoContainer = (props: Props) => {
             const newChoose = [...choose]
             newChoose[index]= e.target.value;
             setChoose(newChoose);
+            console.log(newChoose[index]);
+            console.log(e)
         },
         [choose]
     );
